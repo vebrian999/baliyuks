@@ -1,0 +1,1323 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Poppins;
+  font-size: 12px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* p {
+  font-size: 16px;
+  font-weight: 300;
+} */
+
+.jumbotron {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  height: 720px;
+  color: white;
+  padding: 20px;
+  transition: background-image 1s ease;
+}
+
+#jumbotronText {
+  font-size: 16px;
+}
+
+.text-jumbotron {
+  padding: 250px;
+}
+
+.btn-jumb {
+  position: absolute;
+  justify-content: space-between;
+  z-index: 100;
+  display: flex;
+  width: 97%;
+  top: 50%;
+  align-items: center;
+}
+
+.btn-jumb button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #00aaff7d;
+  border: none;
+  color: #ffffff7d;
+  font-family: monospace;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.btn-jumb button:hover {
+  background-color: #00a9ff;
+  color: #ffffff;
+  cursor: pointer;
+}
+/* header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  padding: 0 5%;  //header 1
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+} */
+/* header h1 {
+  font-size: 40px;
+  color: white;
+} */
+/* header nav {
+  display: flex;
+  gap: 30px;
+} */
+/* header nav a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 99px;
+  transition: 0.3s;
+  color: white;
+}
+header nav a.active {
+  background: #5247b9;
+}
+header nav a:hover {
+  background: #5247b9;
+}
+header nav:hover > a:not(:hover) {
+  background: none;
+} */
+
+nav ul li a.active {
+  color: #eec759;
+  font-weight: bold;
+}
+
+nav a {
+  font-weight: normal;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative; /* Menjadikan posisi relatif untuk tautan */
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%; /* Mulai dari lebar 0 */
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease; /* Transisi untuk lebar */
+}
+
+nav a:hover::before {
+  width: 100%; /* Mengubah lebar ke 100% saat dihover */
+}
+
+nav ul {
+  padding-inline: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav {
+  padding: 5px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: transform 1s ease, background-color 1s ease; /* Mengubah durasi transisi menjadi 1 detik */
+  transform: translateY(-100%); /* Pindahkan navbar ke atas saat digulir */
+  z-index: 999999;
+  background-color: #00a9ff;
+}
+
+nav.scrolled {
+  background-color: #00a9ff;
+  color: black;
+  transform: translateY(-100%);
+}
+
+nav.scrolled.show {
+  transform: translateY(0); /* Pindahkan navbar kembali ke posisi semula */
+}
+
+nav:hover {
+  background-color: #00a9ff;
+  color: black;
+}
+
+nav .logo {
+  height: 70px;
+}
+
+.home {
+  display: flex;
+  height: 100dvh;
+  background: linear-gradient(to top, #d2e2fb 30%, #86a8db);
+  position: relative;
+  overflow: hidden;
+}
+
+.home .mount2 {
+  position: absolute;
+  /* bottom: 0; */
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.home .bush1 {
+  position: absolute;
+  /* bottom: 0; */
+  width: 100%;
+  pointer-events: none;
+}
+
+.home .title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 120px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
+}
+
+.about {
+  padding: 50px;
+  background: #3b3291;
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+.about h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
+
+.tradisi {
+  display: flex;
+  flex-wrap: wrap; /* Memastikan konten dapat melingkar ketika ruang terbatas */
+}
+
+.tradisi h2 {
+  width: 100%; /* Menyimpan judul di satu baris */
+}
+
+.kategori {
+  position: relative;
+  flex: 1 1 calc(33.33% - 20px); /* Menyusun tiga bagian dalam satu baris */
+  /* margin: 10px; */
+  overflow: hidden; /* Untuk menghindari gambar yang keluar saat hover */
+}
+
+.kategori .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  text-align: center;
+  transition: transform 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.kategori:hover img {
+  transform: scale(1.05); /* Memperbesar sedikit bagian dalam saat dihover */
+  transition: transform 0.5s ease; /* Transisi untuk efek hover */
+}
+
+.kategori h2 {
+  margin: 0; /* Menghapus margin bawaan dari h2 */
+  color: white;
+  font-size: 48px;
+  text-align: center;
+}
+
+.kategori img {
+  width: 100%;
+  display: block;
+}
+
+/* Pop-up modal dialog style */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0; /* Mengatur posisi pop-up ke kanan */
+  width: 50%; /* Mengatur lebar pop-up */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 35%; /* Mengatur posisi pop-up konten ke kanan */
+  transform: translate(0, -50%); /* Mengatur posisi pop-up konten ke tengah vertikal */
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  animation: popupFadeIn 0.9s ease forwards;
+  overflow: auto; /* Menambahkan overflow jika konten lebih besar dari pop-up */
+  width: 1000px;
+  height: 700px;
+  /* max-width: 1400px; */
+  /* max-height: 80vh;  */
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Mengatur posisi tombol close ke kanan */
+  cursor: pointer;
+}
+
+/* Animasi muncul */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.pop {
+  background-color: aqua;
+  width: 50%;
+}
+
+.pop-img {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+}
+
+.kategori1 {
+  display: flex;
+}
+
+.sejarah {
+  margin-bottom: 25%;
+}
+
+.sjr {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.sjr-1 {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 3%;
+  padding: 30px;
+}
+
+/* .sjr-2 {
+  width: 10%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+} */
+
+.sjr-3 {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  gap: 4%;
+  padding: 30px;
+}
+
+.bg-sjr1-kiri {
+  background-image: url("../assets/img/bg-sejarah.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: auto;
+}
+
+.image-kiri-sjr {
+  /* margin-left: 25%;
+  margin-top: 10%; */
+  position: relative;
+  left: 45%;
+  top: 7%;
+  width: 65%;
+}
+
+.image-kanan-sjr {
+  position: relative;
+  right: 10%;
+  top: 10%;
+  width: 65%;
+}
+
+.merdeka-h2 {
+  width: 600px;
+}
+
+strong {
+  font-size: 48px;
+  font-weight: 300;
+}
+
+/* .dest h2 {
+  margin: 0px;
+} */
+
+/* start tari */
+
+.navi {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  justify-content: start;
+  color: white;
+  padding: 30px;
+}
+
+/* Efek hover */
+.navi li:hover {
+  border-bottom: 2px solid white; /* Garis bawah saat hover */
+  transition: border-bottom 0.3s ease; /* Efek transisi saat hover */
+}
+
+.navi a {
+  text-decoration: none; /* Menghapus garis bawah */
+  color: inherit;
+}
+
+.dest-kiri {
+  display: flex;
+  padding: 5%;
+}
+
+.cont {
+  margin-top: 10%;
+  color: white;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.dest {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0px;
+  font-size: 96px;
+  color: white;
+  padding: 15px;
+}
+
+.destination {
+  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
+  width: 100%; /* Lebar konten */
+  margin-right: -1px; /* Jarak antar artikel */
+  background-color: #00a9ff; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  padding: 15px; /* Padding */
+}
+.destination1 {
+  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
+  width: 100%; /* Lebar konten */
+  margin-right: 10px; /* Jarak antar artikel */
+  background-color: #00a9ff; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  padding: 15px; /* Padding */
+}
+.destination2 {
+  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
+  width: 100%; /* Lebar konten */
+  margin-right: 10px; /* Jarak antar artikel */
+  background-color: #00a9ff; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  padding: 15px; /* Padding */
+}
+.destination3 {
+  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
+  width: 100%; /* Lebar konten */
+  margin-right: 10px; /* Jarak antar artikel */
+  background-color: #00a9ff; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  padding: 15px; /* Padding */
+}
+
+/* start text berjalan */
+.judul {
+  overflow: hidden;
+  padding: 60px 0;
+  white-space: nowrap;
+  position: relative;
+  background-color: #00a9ff;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin: 40px 0px;
+  text-align: center;
+}
+
+.judul:before,
+.judul:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.judul:hover .judul-slide {
+  animation-play-state: paused;
+}
+
+.judul:before {
+  left: 0;
+}
+
+.judul:after {
+  right: 0;
+}
+
+.judul-slide {
+  display: inline-block;
+  font-size: 48px;
+  animation: slide 20s infinite linear;
+  color: white;
+  font-weight: 600;
+}
+
+/* @keyframes slide {
+  from {
+    transform: translateX(135%);
+  }
+  to {
+    transform: translateX(-135%);
+  }
+} */
+/* end text berjalan */
+
+.dast-dest {
+  display: flex;
+  overflow-x: hidden;
+  scroll-behavior: smooth; /* Animasi scrolling */
+  -webkit-overflow-scrolling: touch; /* Animasi scrolling pada perangkat mobile */
+}
+
+.destination,
+.destination1,
+.destination2,
+.destination3 {
+  display: inline-block;
+  vertical-align: top;
+}
+.destination h2 {
+  color: white;
+}
+
+/* end tari*/
+
+.more {
+  font-size: 20px;
+  display: flex;
+  gap: 20px;
+  text-decoration: none; /* Menghapus garis bawah */
+  color: inherit;
+}
+
+.bg-seni {
+  background-image: url("../assets/img/bg-seni.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+.seni-rupa {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.seni-rupa img {
+  width: 250px;
+  height: auto;
+  margin-top: 100%;
+  transition: transform 0.3s ease; /* Animasi untuk transisi saat hover */
+}
+
+.seni-rupa a:hover img {
+  transform: scaleX(1.1); /* Memperbesar gambar saat hover */
+  transform: scaley(1.5);
+}
+
+.seni-seni {
+  position: relative;
+  text-align: center;
+}
+
+.senio {
+  position: absolute;
+  bottom: 30px;
+  left: 125px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.senio p {
+  margin: 0;
+  width: 200px;
+  font-size: 20px;
+  text-decoration: none; /* Menghapus garis bawah */
+  color: white;
+  transition: transform 0.3s ease; /* Animasi untuk transisi saat hover */
+  transform-origin: center bottom; /* Tetapkan transform origin ke tengah bawah */
+  position: relative; /* Tambahkan */
+  z-index: 1; /* Tambahkan */
+}
+
+.senio p:hover {
+  transform: scale(1.1) translateY(-10px); /* Memperbesar dan geser teks ke atas saat hover */
+  opacity: 1;
+  z-index: 9999;
+}
+
+.featured a {
+  text-decoration: none;
+  color: #00a9ff;
+}
+.featured {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Mengatur jarak antar item */
+}
+
+.featured1 {
+  flex-basis: calc(50% - 20px); /* Mengatur agar hanya ada 2 kolom */
+  background-color: #00a9ff;
+  border-radius: 10px;
+  padding: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.featured1 h3 {
+  color: white;
+  font-size: 48px;
+}
+.featured1 p {
+  margin: 0px;
+  color: white;
+}
+
+.featured1:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  color: #00a9ff;
+}
+
+.featured1 img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.seeM {
+  background-color: white;
+  padding: 10px;
+  width: 25%;
+  text-align: center;
+  border-radius: 8px;
+}
+
+@keyframes galeriAnimation {
+  from {
+    transform: translateX(650%);
+  }
+  to {
+    transform: translateX(-700%);
+  }
+}
+
+.galer2 {
+  background-color: #ffffff;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.galer {
+  display: flex;
+  overflow: hidden;
+  background-color: #00a9ff;
+  padding: 50px;
+}
+
+.galer1 {
+  animation: galeriAnimation 10s linear infinite;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+}
+
+.wkwk {
+  width: 30%;
+  margin-left: 30%;
+}
+/* ini di hapus nanti */
+
+.corosel-all {
+  margin: 90px;
+}
+/* carousel */
+.carousel {
+  height: 100vh;
+  margin-top: -50px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel .list .item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+.carousel .list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel .list .item .content {
+  position: absolute;
+  top: 20%;
+  width: 1140px;
+  max-width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-right: 30%;
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 0 5px 10px #0004;
+}
+.carousel .list .item .author {
+  font-weight: bold;
+  letter-spacing: 5px;
+  font-size: 16px;
+}
+.carousel .list .item .title,
+.carousel .list .item .topic {
+  font-size: 5em;
+  font-weight: bold;
+  line-height: 1.3em;
+}
+.carousel .list .item .topic {
+  color: #00a9ff;
+}
+.carousel .list .item .buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  grid-template-rows: 40px;
+  gap: 5px;
+  margin-top: 20px;
+}
+.carousel .list .item .buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  text-decoration: none;
+  background-color: #00a9ff;
+  letter-spacing: 3px;
+  font-family: Poppins;
+  font-weight: 500;
+  color: white;
+}
+.carousel .list .item .buttons a:nth-child(2) {
+  background-color: transparent;
+  border: 1px solid #00a9ff;
+  color: #ffffff;
+}
+/* thumbail */
+.thumbnail {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+}
+.thumbnail .item {
+  width: 150px;
+  height: 220px;
+  flex-shrink: 0;
+  position: relative;
+}
+.thumbnail .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.thumbnail .item .content {
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+}
+.thumbnail .item .content .title {
+  font-weight: 500;
+}
+.thumbnail .item .content .description {
+  font-weight: 300;
+}
+/* arrows */
+.arrows {
+  position: absolute;
+  top: 80%;
+  right: 52%;
+  z-index: 100;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.arrows button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #00aaff7d;
+  border: none;
+  color: #ffffff7d;
+  font-family: monospace;
+  font-weight: bold;
+  transition: 0.5s;
+}
+.arrows button:hover {
+  background-color: #00a9ff;
+  color: #ffffff;
+}
+
+/* animation */
+.carousel .list .item:nth-child(1) {
+  z-index: 1;
+}
+
+/* animation text in first item */
+
+.carousel .list .item:nth-child(1) .content .author,
+.carousel .list .item:nth-child(1) .content .title,
+.carousel .list .item:nth-child(1) .content .topic,
+.carousel .list .item:nth-child(1) .content .des,
+.carousel .list .item:nth-child(1) .content .buttons {
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 1s linear 1 forwards;
+}
+@keyframes showContent {
+  to {
+    transform: translateY(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.carousel .list .item:nth-child(1) .content .title {
+  animation-delay: 1.2s !important;
+}
+.carousel .list .item:nth-child(1) .content .topic {
+  animation-delay: 1.4s !important;
+}
+.carousel .list .item:nth-child(1) .content .des {
+  animation-delay: 1.6s !important;
+}
+.carousel .list .item:nth-child(1) .content .buttons {
+  animation-delay: 1.8s !important;
+}
+/* create animation when next click */
+.carousel.next .list .item:nth-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  border-radius: 30px;
+  animation: showImage 0.5s linear 1 forwards;
+}
+@keyframes showImage {
+  to {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.carousel.next .thumbnail .item:nth-last-child(1) {
+  overflow: hidden;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.carousel.prev .list .item img {
+  z-index: 100;
+}
+@keyframes showThumbnail {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+}
+.carousel.next .thumbnail {
+  animation: effectNext 0.5s linear 1 forwards;
+}
+
+@keyframes effectNext {
+  from {
+    transform: translateX(150px);
+  }
+}
+
+/* running time */
+
+.carousel .time {
+  position: absolute;
+  z-index: 1000;
+  width: 0%;
+  height: 3px;
+  background-color: #a0e9ff;
+  left: 0;
+  top: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time {
+  animation: runningTime 3s linear 1 forwards;
+}
+@keyframes runningTime {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+/* prev click */
+
+.carousel.prev .list .item:nth-child(2) {
+  z-index: 2;
+}
+
+.carousel.prev .list .item:nth-child(2) img {
+  animation: outFrame 0.5s linear 1 forwards;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+@keyframes outFrame {
+  to {
+    width: 150px;
+    height: 220px;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 20px;
+  }
+}
+
+.carousel.prev .thumbnail .item:nth-child(1) {
+  overflow: hidden;
+  opacity: 0;
+  animation: showThumbnail 0.5s linear 1 forwards;
+}
+.carousel.next .arrows button,
+.carousel.prev .arrows button {
+  pointer-events: none;
+}
+.carousel.prev .list .item:nth-child(2) .content .author,
+.carousel.prev .list .item:nth-child(2) .content .title,
+.carousel.prev .list .item:nth-child(2) .content .topic,
+.carousel.prev .list .item:nth-child(2) .content .des,
+.carousel.prev .list .item:nth-child(2) .content .buttons {
+  animation: contentOut 1.5s linear 1 forwards !important;
+}
+
+@keyframes contentOut {
+  to {
+    transform: translateY(-150px);
+    filter: blur(20px);
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 678px) {
+  .carousel .list .item .content {
+    padding-right: 0;
+  }
+  .carousel .list .item .content .title {
+    font-size: 30px;
+  }
+}
+
+.img-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-fx {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 100%;
+  z-index: 2;
+}
+.letters {
+  flex: 1;
+  display: flex;
+  text-transform: uppercase;
+}
+
+.letters > div {
+  flex: 1;
+  font-size: 200px;
+  font-weight: 400;
+  color: #000;
+  text-align: center;
+}
+
+.website-content {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.img-holder {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  clip-path: polygon(37.5% 20%, 62.5% 20%, 62.5% 80%, 37.5% 80%);
+  transform: rotate(30deg);
+}
+
+.img-holder .img-img {
+  position: relative;
+  transform: scale(2);
+}
+.content-holder {
+  position: relative;
+  top: -5px;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 1em;
+}
+
+.row {
+  margin: 2em 1em;
+}
+
+.img {
+  width: 200px;
+  height: 275px;
+}
+
+.row:nth-child(2) .img {
+  position: relative;
+  left: 50%;
+}
+
+.row:nth-child(3) .img {
+  position: relative;
+  left: 15%;
+}
+
+.row:nth-child(4) .img {
+  position: relative;
+  left: 70%;
+}
+
+.row:nth-child(6) .img {
+  position: relative;
+  left: 30%;
+  margin: 4em 0;
+}
+
+.smooth-scroller {
+  overflow: hidden;
+}
+
+.hero-scroller {
+  height: 250vh;
+  overflow: hidden;
+}
+
+.sejarah-agama {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  padding: 50px;
+  justify-content: center;
+}
+
+.copy {
+  background: #d4cfc0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-wrapper {
+  max-width: 1400px;
+}
+
+.content-sa {
+  width: 100%;
+  max-width: 840px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.hero-header {
+  font-size: 180px;
+  font-weight: 400;
+  line-height: 150px;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 50%;
+}
+
+.sa-image {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*tentang seputar bali */
+
+.background-seputar-bali {
+  background-image: url("../assets/img/bg-seputar-bali.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: auto;
+}
+
+.seputar-bali {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.seputar-bali-kiri {
+  background-color: rgba(255, 255, 255, 0.5); /* Ubah opasitas latar belakang putih */
+  /* backdrop-filter: blur(5px); */
+  border-radius: 20px; /* Sudut bulat pada semua sisi */
+  width: 70%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.seputar-bali-kanan {
+  border-radius: 20px; /* Sudut bulat pada semua sisi */
+  background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  width: 30%;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.head-bali-kanan {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+table {
+  display: flex;
+  justify-content: center;
+}
+
+.judul-bali-kanan {
+  text-align: center;
+  font-size: 32px;
+}
+
+.judul-bali-kiri {
+  text-align: start;
+  font-size: 32px;
+}
+
+.what-bali {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.geografis-bali {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jumlah-ragam-bali {
+  background-color: rgba(255, 255, 255, 0.5); /* Ubah opasitas latar belakang putih */
+  /* backdrop-filter: blur(5px); */
+  border-radius: 20px; /* Sudut bulat pada semua sisi */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+  /* height: 100vh; */
+}
+
+.jumlah-ragam-bali1 {
+  padding: 0px 20px;
+  padding-bottom: 20px;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: #00a9ff;
+  overflow: hidden; /* Menghindari konten berlebih */
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  overflow: hidden;
+  animation: morph 3s linear infinite;
+  transition: transform 0.6s ease; /* Menambahkan transisi untuk perubahan ukuran */
+}
+
+.circle:hover {
+  transform: scale(1.2); /* Membesarkan gambar saat dihover */
+}
+.circle img {
+  width: 100%;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+
+.button-jumlah-bali {
+  background-color: white;
+  width: 100px;
+  text-align: center;
+  border-radius: 8px;
+  display: flex;
+  margin-left: 20%;
+  transition: background-color 0.3s; /* Menambahkan transisi untuk perubahan warna latar belakang */
+}
+
+.button-jumlah-bali:hover {
+  background-color: #00a9ff; /* Ubah warna latar belakang saat dihover */
+}
+.button-jumlah-bali a {
+  width: 100px;
+  padding: 10px;
+  text-decoration: none;
+  color: #00a9ff;
+  text-align: center;
+  transition: color 0.3s; /* Menambahkan transisi untuk perubahan warna latar belakang */
+}
+
+.button-jumlah-bali a:hover {
+  color: #fff;
+}
+.item-circle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* end seputar bali */

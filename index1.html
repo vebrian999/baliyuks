@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BaliYuks</title>
+    <!-- My Own Styles -->
+    <link rel="stylesheet" href="assets/app.css" />
+  </head>
+  <body>
+    <header class="jumbotron1">
+      <header>
+        <h1>Logo</h1>
+        <nav>
+          <a href="#" class="active">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Contact</a>
+        </nav>
+      </header>
+    </header>
+    <section class="home">
+      <img src="assets/img/base.png" class="mount2" />
+      <!-- <img src="assets/mount1.png" class="mount1">
+        <img src="assets/bush2.png" class="bush2"> -->
+
+      <h1 class="title">Bali Keren</h1>
+
+      <img src="assets/img/bg-2.png " class="bush1" />
+      <!-- <img src="assets/leaf2.png" class="leaf2" />
+      <img src="assets/leaf1.png" class="leaf1" /> -->
+    </section>
+
+    <main id="content">
+      <div class="content" id="content">
+        <article class="tradisi" id="tradisi">
+          <h2>Macam-macam Tradisi dan Budaya Lokal Bali</h2>
+          <!-- Bagian Pertama -->
+          <div class="kategori" onclick="showPopup('Ngaben')">
+            <div class="overlay">
+              <h2>Ngaben</h2>
+            </div>
+            <img src="assets/img/ngaben.png" alt="ngaben" />
+          </div>
+
+          <!-- Bagian kedua -->
+          <div class="kategori" onclick="showPopup('Pengerupukan')">
+            <div class="overlay">
+              <h2>Pengerupukan</h2>
+            </div>
+            <img src="assets/img/Pengerupukan.png" alt="pengerupukan" />
+          </div>
+
+          <!-- Bagian ketiga -->
+          <div class="kategori" onclick="showPopup('perang')">
+            <div class="overlay">
+              <h2>Pandan</h2>
+            </div>
+            <img src="assets/img/perang.png" alt="perangpandan" />
+          </div>
+        </article>
+
+        <article class="sejarah" id="sejarah">
+          <h2>Sejarah bali dulu hingga sekarang</h2>
+        </article>
+      </div>
+    </main>
+
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <div id="popup-content">
+          <img src="" alt="Pop-up Image" id="popup-img" style="max-width: 100%" />
+          <h2 id="popup-title"></h2>
+          <p id="popup-description">Keterangan tentang tradisi akan muncul di sini.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const title = document.querySelector(".title");
+      const mount2 = document.querySelector(".mount2");
+
+      document.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        title.style.marginTop = value * 1.1 + "px";
+        mount2.style.marginBottom = -value * 1.2 + "px";
+      });
+
+      function showPopup(tradisi) {
+        var popup = document.getElementById("popup");
+        var popupImg = document.getElementById("popup-img");
+        var popupTitle = document.getElementById("popup-title");
+
+        popupImg.src = "assets/img/" + tradisi.toLowerCase() + ".png";
+        popupTitle.innerText = tradisi;
+        popup.style.display = "block";
+      }
+
+      function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+      }
+
+      // ketika di klik tidak bisa di scroll
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const kategoriItems = document.querySelectorAll(".kategori");
+        const body = document.body;
+
+        kategoriItems.forEach(function (item) {
+          item.addEventListener("click", function () {
+            const image = this.querySelector("img");
+            image.style.transform = "scale(1.1)"; // Memperbesar gambar saat ditekan
+            body.style.overflow = "hidden"; // Menonaktifkan overflow saat gambar ditekan
+          });
+        });
+
+        // Fungsi untuk menampilkan pop-up
+        function showPopup(tradisi) {
+          var popup = document.getElementById("popup");
+          var popupImg = document.getElementById("popup-img");
+          var popupTitle = document.getElementById("popup-title");
+
+          popupImg.src = "assets/img/" + tradisi.toLowerCase() + ".png";
+          popupTitle.innerText = tradisi;
+          popup.style.display = "block";
+          body.style.overflow = "hidden"; // Menonaktifkan overflow saat pop-up muncul
+        }
+
+        // Fungsi untuk menutup pop-up dan mengaktifkan kembali overflow
+        function closePopup() {
+          var popup = document.getElementById("popup");
+          popup.style.display = "none";
+          body.style.overflow = "auto"; // Mengaktifkan kembali overflow saat pop-up ditutup
+        }
+
+        // Menambahkan event listener untuk tombol close pop-up
+        const closeButton = document.querySelector(".close");
+        if (closeButton) {
+          closeButton.addEventListener("click", function () {
+            closePopup(); // Memanggil fungsi closePopup saat tombol close ditekan
+          });
+        }
+      });
+    </script>
+
+    <!-- <script src="assets/app.js"></script> -->
+  </body>
+</html>
