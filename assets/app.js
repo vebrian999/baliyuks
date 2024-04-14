@@ -193,3 +193,109 @@ gsap.to(box_items, {
     start: "top center-=520", // Menggeser trigger ke atas sebanyak 530 piksel
   },
 });
+
+$(document).ready(function () {
+  $(".popup-btn").click(function (e) {
+    var target = $(this).attr("data-target");
+    $("." + target + "-wrap").fadeIn(500);
+    $("." + target + "-box")
+      .removeClass("transform-out")
+      .addClass("transform-in");
+    e.preventDefault();
+  });
+
+  $(".popup-close").click(function (e) {
+    $(".popup-wrap").fadeOut(500);
+    $(".popup-box").removeClass("transform-in").addClass("transform-out");
+    e.preventDefault();
+  });
+
+  // Data untuk grafik
+  // Data untuk populasi
+  const populasiData = {
+    labels: ["Laki-laki", "Perempuan"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [2.222, 2.211],
+        backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(255, 99, 132, 0.2)"],
+        borderColor: ["rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  // Opsi untuk populasi
+  const options = {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: true,
+          },
+        },
+      ],
+    },
+  };
+
+  // Inisialisasi grafik populasi
+  const chartPopulasi = new Chart("chart-populasi", {
+    type: "pie",
+    data: populasiData,
+    options: options,
+  });
+
+  // Menghitung total populasi populasi
+  const totalPopulationPopulasi = populasiData.datasets[0].data.reduce((a, b) => a + b, 0);
+  $("#total-population-populasi").text("Total Populasi: " + totalPopulationPopulasi.toLocaleString());
+
+  // Data untuk suku
+  const sukuData = {
+    labels: ["Suku Bali", "Suku Bali Aga", "Suku Nyama Selam", "Suku Bali Majapahit", "Suku Sasak"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [1, 1, 1, 1, 1],
+        backgroundColor: ["rgba(255, 206, 86, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 99, 132, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)"],
+        borderColor: ["rgba(255, 206, 86, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 99, 132, 1)", "rgba(75, 192, 192, 1)", "rgba(153, 102, 255, 1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  // Inisialisasi grafik suku
+  const chartSuku = new Chart("chart-suku", {
+    type: "pie",
+    data: sukuData,
+    options: options,
+  });
+
+  // Menghitung total populasi suku
+  const totalPopulationSuku = sukuData.datasets[0].data.reduce((a, b) => a + b, 0);
+  $("#total-population-suku").text("Total Suku yang saya tahu: " + totalPopulationSuku.toLocaleString());
+
+  // Data untuk agama
+  const agamaData = {
+    labels: ["Hindu", "Islam", "Kristen", "Buddha", "Konghucu"], // Menghapus koma yang berlebihan pada label Kristen
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [86.59, 10.16, 2.55, 0.68, 0.02],
+        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(0, 255, 0, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 255, 0, 0.2)", "rgba(255, 206, 86, 0.2)"],
+        borderColor: ["rgba(255, 99, 132, 1)", "rgba(255, 206, 86, 1)", "rgba(54, 162, 235, 1)", "rgba(75, 192, 192, 1)", "rgba(255, 255, 0, 1)", "rgba(0, 255, 0, 1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
+  // Inisialisasi grafik agama
+  const chartAgama = new Chart("chart-agama", {
+    type: "pie",
+    data: agamaData,
+    options: options,
+  });
+
+  // Menghitung total populasi agama
+  const totalPopulationAgama = agamaData.datasets[0].data.reduce((a, b) => a + b, 0);
+  const totalPopulationPercent = totalPopulationAgama.toFixed(2) + "%";
+  $("#total-population-agama").text("Total: " + totalPopulationPercent);
+});

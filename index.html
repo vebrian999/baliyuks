@@ -12,6 +12,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
   <body>
     <!-- awal header -->
@@ -159,7 +162,7 @@
                     <h1>Jumlah populasi di bali</h1>
                   </div>
                   <div class="button-jumlah-bali">
-                    <a href="">See more</a>
+                    <a class="btn popup-btn" href="#" data-target="populasi">See More</a>
                   </div>
                 </div>
                 <div class="item-circle">
@@ -170,7 +173,7 @@
                     <h1>Jumlah suku di pulau bali</h1>
                   </div>
                   <div class="button-jumlah-bali">
-                    <a href="">See more</a>
+                    <a class="btn popup-btn" href="#" data-target="suku">See More</a>
                   </div>
                 </div>
                 <div class="item-circle">
@@ -181,12 +184,47 @@
                     <h1>Jumlah agama di bali</h1>
                   </div>
                   <div class="button-jumlah-bali">
-                    <a href="">See more</a>
+                    <a class="btn popup-btn" href="#" data-target="agama">See More</a>
+                  </div>
+                </div>
+
+                <div class="popup-wrap populasi-wrap">
+                  <div class="popup-box populasi-box">
+                    <h2 class="judul-popup">Jumlah populasi di Bali</h2>
+                    <p class="text-popup">Sekadar info populasi Bali, lihat grafik di bawah. Memperlihatkan pembagian laki-laki dan perempuan, gambaran demografi pulau ini.</p>
+                    <p style="color: black" id="total-population-populasi"></p>
+                    <div>
+                      <a href="#" class="fa fa-male"></a>
+                      <a href="#" class="fa fa-female"></a>
+                    </div>
+                    <canvas id="chart-populasi" style="width: 100%; max-width: 700px"></canvas>
+                    <a class="close-btn popup-close" href="#">x</a>
+                  </div>
+                </div>
+
+                <div class="popup-wrap suku-wrap">
+                  <div class="popup-box suku-box">
+                    <h2 class="judul-popup">Jumlah suku di Bali</h2>
+                    <p class="text-popup">Sekadar informasi tentang jumlah suku yang tinggal di Pulau Bali, berikut adalah grafik yang menampilkan distribusi suku-suku tersebut..</p>
+                    <p style="color: black" id="total-population-suku"></p>
+                    <canvas id="chart-suku" style="width: 100%; max-width: 700px"></canvas>
+                    <a class="close-btn popup-close" href="#">x</a>
+                  </div>
+                </div>
+
+                <div class="popup-wrap agama-wrap">
+                  <div class="popup-box agama-box">
+                    <h2 class="judul-popup">Jumlah agama di Bali</h2>
+                    <p class="text-popup">Berikut adalah grafik yang menunjukkan distribusi jumlah pemeluk agama di Pulau Bali.</p>
+                    <p style="color: black" id="total-population-agama"></p>
+                    <canvas id="chart-agama" style="width: 100%; max-width: 1000px"></canvas>
+                    <a class="close-btn popup-close" href="#">x</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         </article>
 
         <!-- tentang-sejarah -->
@@ -276,120 +314,6 @@
             </div>
           </div>
         </article>
-
-        <!-- <article>
-          <div class="smooth-scroll">
-            <div class="hero-scroller">
-              <div class="sejarah-agama">
-                <div class="section-wrapper">
-                  <div class="content-sa">
-                    <h1 class="hero-header h-1">the great</h1>
-                    <h1 class="hero-header h-2">outdoors</h1>
-                    <h1 class="hero-header h-3">volume</h1>
-                  </div>
-                  <div class="pin-wrapper">
-                    <div class="image-wrapper" id="heroImage">
-                      <img class="sa-image" src="https://images.unsplash.com/photo-1653919450772-489831a08403?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="sejarah-agama copy">
-              <div class="section-wrapper">
-                <div class="content-sa">
-                  <p class="">
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-                    opposed to using 'Content here, content here', making it look like readable English.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
-          <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-          <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            const locoScroll = new LocomotiveScroll({
-              el: document.querySelector(".smooth-scroll"),
-              smooth: true,
-              lerp: 0.08,
-            });
-
-            locoScroll.on("scroll", ScrollTrigger.update);
-
-            ScrollTrigger.scrollerProxy(".smooth-scroll", {
-              scrollTop(value) {
-                return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-              },
-              getBoundingClientRect() {
-                return {
-                  top: 0,
-                  left: 0,
-                  width: window.innerWidth,
-                  height: window.innerHeight,
-                };
-              },
-              pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed",
-            });
-
-            const vw = (coef) => window.innerWidth * (coef / 100);
-            const vh = (coef) => window.innerHeight * (coef / 100);
-
-            const heroScroller = gsap.timeline({
-              paused: true,
-              scrollTrigger: {
-                trigger: ".hero-header.h-1",
-                scroller: ".smooth-scroll",
-                pin: ".pin-wrapper",
-                start: "top 10%",
-                scrub: true,
-                end: `${vh(100)}`,
-              },
-            });
-
-            heroScroller
-              .to(
-                [".hero-header.h-1", ".hero-header.h-3"],
-                {
-                  scale: 2,
-                  y: vh(150),
-                  xPercent: -150,
-                },
-                "heroScroll"
-              )
-              .to(
-                ".hero-header.h-2",
-                {
-                  scale: 2,
-                  y: vh(150),
-                  xPercent: 150,
-                },
-                "heroScroll"
-              )
-              .to(
-                "#heroImage",
-                {
-                  scaleY: 2.5,
-                },
-                "heroScroll"
-              )
-              .to(
-                "#heroImage .sa-image",
-                {
-                  scaleX: 2.5,
-                  xPercent: 50,
-                },
-                "heroScroll"
-              );
-
-            ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-            ScrollTrigger.refresh();
-          </script>
-        </article> -->
 
         <!-- tarian bali -->
         <article id="horizontal" class="">
@@ -658,11 +582,13 @@
                 </div>
                 <div class="text">
                   <p>
-                    <img class="inset" src="https://assets.codepen.io/4787486/oak_1.jpg" alt="" />Trees are woody perennial plants that are a member of the kingdom <em>Plantae</em>. All species of trees are grouped by their genus, family,
-                    and order. This helps make identifying and studying trees easier.
+                    <img class="inset" src="assets/img/agama+ritual.png" alt="" />Di Bali, ritual kea gamaan menyatu dengan kehidupan sehari-hari. Mulai dari upacara persembahan hingga festival agama, kepercayaan Hindu mewarnai setiap
+                    aktivitas.
                   </p>
-                  <p>Apart from providing oxygen for the planet and beauty when they bloom or turn color, trees are very useful. Certain species of hardwood and softwood trees are excellent for timber, making furniture, and paper.</p>
-                  <p>When managed properly, trees are a good source of renewable energy and construction material.</p>
+                  <p>Upacara kelahiran, pernikahan, dan kematian, serta festival seperti Galungan dan Nyepi, memperkaya</p>
+                  <div class="button-budaya">
+                    <a class="tombol-budaya" href="">See More</a>
+                  </div>
                 </div>
               </div>
 
@@ -671,7 +597,7 @@
                   <div class="overlay-content animate slide-left delay-2">
                     <h1 class="animate slide-left pop delay-4">Adat dan Tradisi</h1>
                   </div>
-                  <div class="image-content animate slide delay-5"></div>
+                  <div class="image-content image-content-1 animate slide delay-5"></div>
                   <div class="dots animate">
                     <div class="dot animate slide-up delay-6"></div>
                     <div class="dot animate slide-up delay-7"></div>
@@ -680,11 +606,15 @@
                 </div>
                 <div class="text">
                   <p>
-                    <img class="inset" src="https://assets.codepen.io/4787486/oak_1.jpg" alt="" />Trees are woody perennial plants that are a member of the kingdom <em>Plantae</em>. All species of trees are grouped by their genus, family,
-                    and order. This helps make identifying and studying trees easier.
+                    <img class="inset" src="assets/img/adat+tradisi.png" alt="" />Adat dan tradisi Bali menggam barkan ke kayaan budaya yang mendalam. Sistem sosial yang terstruktur, tata cara pernikahan, dan adat istiadat sehari-hari
+                    mencerminkan nilai-nilai yang diwarisi dari generasi ke generasi.
                   </p>
-                  <p>Apart from providing oxygen for the planet and beauty when they bloom or turn color, trees are very useful. Certain species of hardwood and softwood trees are excellent for timber, making furniture, and paper.</p>
-                  <p>When managed properly, trees are a good source of renewable energy and construction material.</p>
+                  <p>
+                    Upacara adat, seperti metatah (potong gigi) dan ngaben (pemakaman), juga menjadi bagian integral dari kehidupan masyarakat. Dengan menjaga warisan ini, Bali terus memperkaya dan mempertahankan identitasnya yang unik.
+                  </p>
+                  <div class="button-budaya">
+                    <a class="tombol-budaya" href="">See More</a>
+                  </div>
                 </div>
               </div>
 
@@ -693,7 +623,7 @@
                   <div class="overlay-content animate slide-left delay-2">
                     <h1 class="animate slide-left pop delay-4">Lukis dan Patung</h1>
                   </div>
-                  <div class="image-content animate slide delay-5"></div>
+                  <div class="image-content image-content-2 animate slide delay-5"></div>
                   <div class="dots animate">
                     <div class="dot animate slide-up delay-6"></div>
                     <div class="dot animate slide-up delay-7"></div>
@@ -702,11 +632,13 @@
                 </div>
                 <div class="text">
                   <p>
-                    <img class="inset" src="https://assets.codepen.io/4787486/oak_1.jpg" alt="" />Trees are woody perennial plants that are a member of the kingdom <em>Plantae</em>. All species of trees are grouped by their genus, family,
-                    and order. This helps make identifying and studying trees easier.
+                    <img class="inset" src="assets/img/lukisan+patung.png" alt="" />Seni Lukis dan Patun g di Bali mencermi nkan keindahan dan kedalaman budaya pulau ini. Lukisan Bali sering menggambarkan mitologi Hindu, pemandangan alam,
+                    dan kehidupan sehari-hari dengan warna cerah dan detail yang rumit.
                   </p>
-                  <p>Apart from providing oxygen for the planet and beauty when they bloom or turn color, trees are very useful. Certain species of hardwood and softwood trees are excellent for timber, making furniture, and paper.</p>
-                  <p>When managed properly, trees are a good source of renewable energy and construction material.</p>
+                  <p>Tak ketinggalan, festival agama seperti Galungan dan Nyepi juga menjadi momen penting dalam tahun kalender Bali.</p>
+                  <div class="button-budaya">
+                    <a class="tombol-budaya" href="">See More</a>
+                  </div>
                 </div>
               </div>
             </div>
