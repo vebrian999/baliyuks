@@ -299,3 +299,11 @@ $(document).ready(function () {
   const totalPopulationPercent = totalPopulationAgama.toFixed(2) + "%";
   $("#total-population-agama").text("Total: " + totalPopulationPercent);
 });
+
+// Fungsionalitas menu mobile
+const mobileMenuButton = document.getElementById("mobile-menu");
+const navList = document.querySelector("nav ul");
+
+mobileMenuButton.addEventListener("click", function () {
+  navList.classList.toggle("show");
+});

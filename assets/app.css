@@ -68,11 +68,9 @@ body {
   cursor: pointer;
 }
 
-nav ul li a.active {
-  color: #eec759;
-  font-weight: bold;
-}
+/* bagian start end */
 
+/* start navbar */
 nav a {
   font-weight: normal;
   font-size: 16px;
@@ -144,64 +142,28 @@ nav .logo {
   height: 70px;
 }
 
-.home {
-  display: flex;
-  height: 100dvh;
-  background: linear-gradient(to top, #d2e2fb 30%, #86a8db);
-  position: relative;
-  overflow: hidden;
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
 }
 
-.home .mount2 {
-  position: absolute;
-  /* bottom: 0; */
-  width: 100%;
-  height: auto;
-  pointer-events: none;
+.mobile-menu-icon .bar {
+  width: 30px;
+  height: 3px;
+  background-color: #9bb8cd;
+  margin: 6px 0;
+  transition: 0.4s;
+  margin: 5px;
+  padding: 2px;
 }
-
-.home .bush1 {
-  position: absolute;
-  /* bottom: 0; */
-  width: 100%;
-  pointer-events: none;
-}
-
-.home .title {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 120px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 5px 5px 70px rgba(255, 255, 255, 0.5);
-}
-
-.about {
-  padding: 50px;
-  background: #3b3291;
-  color: white;
-  position: relative;
-  z-index: 100;
-}
-.about h1 {
-  font-size: 40px;
-}
+/* bagian nav end */
 
 h2 {
   font-size: 48px;
   text-align: center;
 }
 
-.tradisi {
-  display: flex;
-  flex-wrap: wrap; /* Memastikan konten dapat melingkar ketika ruang terbatas */
-}
-
-.tradisi h2 {
-  width: 100%; /* Menyimpan judul di satu baris */
-}
-
+/*start tentang-sejarah*/
 .sejarah {
   margin-bottom: 25%;
 }
@@ -271,31 +233,13 @@ strong {
   font-weight: 300;
 }
 
+/* end tentang-sejarah*/
+
 /* .dest h2 {
   margin: 0px;
 } */
 
 /* start tari */
-
-.navi {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  justify-content: start;
-  color: white;
-  padding: 30px;
-}
-
-/* Efek hover */
-.navi li:hover {
-  border-bottom: 2px solid white; /* Garis bawah saat hover */
-  transition: border-bottom 0.3s ease; /* Efek transisi saat hover */
-}
-
-.navi a {
-  text-decoration: none; /* Menghapus garis bawah */
-  color: inherit;
-}
 
 .dest-kiri {
   display: flex;
@@ -428,73 +372,7 @@ strong {
 
 /* end tari*/
 
-.more {
-  font-size: 20px;
-  display: flex;
-  gap: 20px;
-  text-decoration: none; /* Menghapus garis bawah */
-  color: inherit;
-}
-
-.bg-seni {
-  background-image: url("../assets/img/bg-seni.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-
-.seni-rupa {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
-
-.seni-rupa img {
-  width: 250px;
-  height: auto;
-  margin-top: 100%;
-  transition: transform 0.3s ease; /* Animasi untuk transisi saat hover */
-}
-
-.seni-rupa a:hover img {
-  transform: scaleX(1.1); /* Memperbesar gambar saat hover */
-  transform: scaley(1.5);
-}
-
-.seni-seni {
-  position: relative;
-  text-align: center;
-}
-
-.senio {
-  position: absolute;
-  bottom: 30px;
-  left: 125px;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.senio p {
-  margin: 0;
-  width: 200px;
-  font-size: 20px;
-  text-decoration: none; /* Menghapus garis bawah */
-  color: white;
-  transition: transform 0.3s ease; /* Animasi untuk transisi saat hover */
-  transform-origin: center bottom; /* Tetapkan transform origin ke tengah bawah */
-  position: relative; /* Tambahkan */
-  z-index: 1; /* Tambahkan */
-}
-
-.senio p:hover {
-  transform: scale(1.1) translateY(-10px); /* Memperbesar dan geser teks ke atas saat hover */
-  opacity: 1;
-  z-index: 9999;
-}
+/* start makanan */
 
 .featured a {
   text-decoration: none;
@@ -550,6 +428,10 @@ strong {
   border-radius: 8px;
 }
 
+/* end makanan */
+
+/* start galer */
+
 @keyframes galeriAnimation {
   from {
     transform: translateX(650%);
@@ -579,11 +461,9 @@ strong {
   flex-direction: column;
 }
 
-.wkwk {
-  width: 30%;
-  margin-left: 30%;
-}
-/* ini di hapus nanti */
+/* end galer */
+
+/* start korosel */
 
 .corosel-all {
   margin: 90px;
@@ -880,157 +760,7 @@ strong {
   }
 }
 
-.img-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.zoom-fx {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  width: 100%;
-  z-index: 2;
-}
-.letters {
-  flex: 1;
-  display: flex;
-  text-transform: uppercase;
-}
-
-.letters > div {
-  flex: 1;
-  font-size: 200px;
-  font-weight: 400;
-  color: #000;
-  text-align: center;
-}
-
-.website-content {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  min-height: 100vh;
-}
-
-.img-holder {
-  position: relative;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  background: #fff;
-  clip-path: polygon(37.5% 20%, 62.5% 20%, 62.5% 80%, 37.5% 80%);
-  transform: rotate(30deg);
-}
-
-.img-holder .img-img {
-  position: relative;
-  transform: scale(2);
-}
-.content-holder {
-  position: relative;
-  top: -5px;
-  width: 100%;
-  background: #000;
-  color: #fff;
-  padding: 1em;
-}
-
-.row {
-  margin: 2em 1em;
-}
-
-.img {
-  width: 200px;
-  height: 275px;
-}
-
-.row:nth-child(2) .img {
-  position: relative;
-  left: 50%;
-}
-
-.row:nth-child(3) .img {
-  position: relative;
-  left: 15%;
-}
-
-.row:nth-child(4) .img {
-  position: relative;
-  left: 70%;
-}
-
-.row:nth-child(6) .img {
-  position: relative;
-  left: 30%;
-  margin: 4em 0;
-}
-
-.smooth-scroller {
-  overflow: hidden;
-}
-
-.hero-scroller {
-  height: 250vh;
-  overflow: hidden;
-}
-
-.sejarah-agama {
-  position: relative;
-  display: flex;
-  min-height: 100vh;
-  padding: 50px;
-  justify-content: center;
-}
-
-.copy {
-  background: #d4cfc0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.section-wrapper {
-  max-width: 1400px;
-}
-
-.content-sa {
-  width: 100%;
-  max-width: 840px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.hero-header {
-  font-size: 180px;
-  font-weight: 400;
-  line-height: 150px;
-  margin: 0px;
-  text-transform: uppercase;
-}
-
-.image-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 50%;
-}
-
-.sa-image {
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/*tentang seputar bali */
+/*start tentang seputar bali */
 
 .background-seputar-bali {
   background-image: url("../assets/img/bg-seputar-bali.png");
@@ -1555,3 +1285,206 @@ margin: 20px;
 }
 
 /* end card */
+
+/* ini respomsif mobile yakk */
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .text-jumbotron {
+    margin-top: 150px;
+    padding: 30px;
+  }
+
+  /* nav */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #00a9ff;
+    z-index: 1;
+  }
+
+  nav ul.show {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  nav li {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  nav a {
+    color: #fff;
+  }
+
+  nav .logo {
+    height: 70px;
+    display: none;
+  }
+
+  nav {
+    align-items: start;
+    background: none;
+  }
+
+  nav:hover {
+    background-color: initial;
+    color: initial;
+  }
+
+  nav.scrolled {
+    background-color: transparent;
+    color: white;
+  }
+  /* nav */
+
+  .btn-jumb {
+    z-index: 100;
+    top: 50%;
+    width: 89%;
+    align-items: center;
+  }
+
+  .seputar-bali {
+    flex-direction: column;
+  }
+
+  .video-bali iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .lokasi-bali iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .seputar-bali-kiri,
+  .seputar-bali-kanan {
+    width: 100%;
+  }
+
+  .wrap {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .popup-box {
+    left: 23%;
+  }
+
+  /* start sejarah */
+
+  h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .sjr {
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .sjr-1,
+  .sjr-3 {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .bg-sjr1-kiri {
+    height: 200px; /* Sesuaikan ketinggian background */
+  }
+
+  .image-kiri-sjr {
+    width: 40%;
+    height: auto;
+    margin: 10px auto; /* Menengahkan gambar */
+    left: 30%;
+    top: -1%;
+  }
+  .image-kanan-sjr {
+    width: 40%;
+    height: auto;
+    margin: 10px auto; /* Menengahkan gambar */
+    right: -30%;
+    top: -1%;
+  }
+
+  .merdeka-h2 {
+    width: 100%;
+    text-align: center; /* Pusatkan teks */
+  }
+
+  strong {
+    font-size: 24px; /* Kurangi ukuran font strong */
+  }
+  /* end sejarah */
+
+  /* start jenis tarian */
+  .horizontal__item {
+    flex-direction: column; /* Mengubah tata letak item menjadi tumpukan vertikal */
+  }
+
+  .horizontal__num {
+    padding: 20px; /* Mengurangi padding */
+  }
+
+  .tari-img {
+    width: 100px; /* Lebar gambar mengisi lebar kontainer */
+    height: auto; /* Menjaga aspek rasio gambar */
+    height: 100px;
+  }
+
+  .cont {
+    text-align: center; /* Pusatkan teks */
+  }
+
+  .dest {
+    display: none; /* Sembunyikan elemen yang tidak diperlukan */
+  }
+
+  .destination {
+    padding: 20px; /* Ubah padding */
+  }
+
+  .dast-dest {
+    overflow-x: hidden; /* Matikan scroll horizontal */
+    overflow-y: auto; /* Aktifkan scroll vertikal jika konten melebihi area yang tersedia */
+    scroll-behavior: smooth; /* Animasi scrolling */
+    -webkit-overflow-scrolling: touch; /* Animasi scrolling pada perangkat mobile */
+  }
+
+  /* end jenis tarian */
+
+  /* makanan */
+  .featured {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .seeM {
+    width: 35%;
+  }
+
+  .card-budaya {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrap-budaya {
+    width: 100%;
+    margin: 0;
+  }
+}
