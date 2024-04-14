@@ -1381,12 +1381,19 @@ margin: 20px;
   .wrap {
     flex-direction: column;
     gap: 20px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 16px;
   }
 
   .popup-box {
-    left: 23%;
-  }
+    width: 329px;
 
+    top: 50%;
+    left: 50%;
+  }
   /* start sejarah */
 
   h2 {
@@ -1403,6 +1410,8 @@ margin: 20px;
   .sjr-3 {
     width: 100%;
     padding: 20px;
+    margin: 0%;
+    
   }
 
   .bg-sjr1-kiri {
@@ -1431,6 +1440,10 @@ margin: 20px;
 
   strong {
     font-size: 24px; /* Kurangi ukuran font strong */
+  }
+
+  .pocici-mobile {
+    margin: 10px 0px;
   }
   /* end sejarah */
 
