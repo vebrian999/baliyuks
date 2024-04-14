@@ -246,6 +246,10 @@ strong {
   padding: 5%;
 }
 
+.tari-img {
+  height: 600px;
+}
+
 .cont {
   margin-top: 10%;
   color: white;
