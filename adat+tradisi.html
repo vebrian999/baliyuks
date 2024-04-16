@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- My Own Styles -->
+    <link rel="stylesheet" href="assets/app.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <style>
+    .smooth-scroller {
+      overflow: hidden;
+    }
+
+    .header-mobile-atb {
+      display: none;
+    }
+
+    .hero-scroller {
+      height: 250vh;
+      overflow: hidden;
+    }
+
+    .sejarah-agama {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+      padding: 50px;
+      justify-content: center;
+    }
+
+    .copy {
+      background: #89cff3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .section-wrapper {
+      max-width: 1400px;
+    }
+
+    .content-sa {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .hero-header {
+      font-size: 180px;
+      font-weight: 400;
+      line-height: 150px;
+      margin: 0px;
+      text-transform: uppercase;
+    }
+
+    .image-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-top: 50%;
+    }
+
+    .sa-image {
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      right: 0%;
+      bottom: 0%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+
+    /* Override UGG site */
+    #main {
+      width: 100%;
+      padding: 0;
+    }
+    .content-asset p {
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      display: none;
+    }
+
+    /* Helpers */
+    /**************************/
+    .margin-top-10 {
+      padding-top: 10px;
+    }
+    .margin-bot-10 {
+      padding-bottom: 10px;
+    }
+
+    /* Typography */
+    /**************************/
+    #parallax-world-of-ugg h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: black;
+      padding: 0;
+      margin: 0;
+    }
+    #parallax-world-of-ugg h2 {
+      font-family: "Oswald", sans-serif;
+      font-size: 70px;
+      letter-spacing: 10px;
+      text-align: center;
+      color: white;
+      font-weight: 400;
+      text-transform: uppercase;
+      z-index: 10;
+      opacity: 0.9;
+    }
+    #parallax-world-of-ugg h3 {
+      font-family: "Oswald", sans-serif;
+      font-size: 14px;
+      line-height: 0;
+      font-weight: 400;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: black;
+    }
+    #parallax-world-of-ugg p {
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+    }
+    .first-character {
+      font-weight: 400;
+      float: left;
+      font-size: 84px;
+      line-height: 64px;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
+      font-family: "Source Sans Pro", sans-serif;
+    }
+
+    .sc {
+      color: #89cff3;
+    }
+    .ny {
+      color: #a0e9ff;
+    }
+    .atw {
+      color: #00a9ff;
+    }
+
+    /* Section - Title */
+    /**************************/
+    #parallax-world-of-ugg .title {
+      background: white;
+      padding: 60px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #parallax-world-of-ugg .title h1 {
+      font-size: 35px;
+      letter-spacing: 8px;
+    }
+
+    /* Section - Block */
+    /**************************/
+    #parallax-world-of-ugg .block {
+      background: white;
+      padding: 60px;
+      width: 820px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    #parallax-world-of-ugg .block-gray {
+      background: #f2f2f2;
+      padding: 60px;
+    }
+    #parallax-world-of-ugg .section-overlay-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.7;
+    }
+
+    /* Section - Parallax */
+    /**************************/
+    #parallax-world-of-ugg .parallax-one {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/Perang+pandan.png");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+    #parallax-world-of-ugg .parallax-two {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/omedomedan.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    #parallax-world-of-ugg .parallax-three {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/wetangan+matah1.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    #parallax-world-of-ugg .parallax-four {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/adat+tradisi.png");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    /* Extras */
+    /**************************/
+    #parallax-world-of-ugg .line-break {
+      border-bottom: 1px solid black;
+      width: 150px;
+      margin: 0 auto;
+    }
+
+    /* Media Queries */
+    /**************************/
+    @media screen and (max-width: 959px) and (min-width: 768px) {
+      #parallax-world-of-ugg .block {
+        padding: 40px;
+        width: 620px;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      #parallax-world-of-ugg .block {
+        padding: 30px;
+        width: 420px;
+      }
+      #parallax-world-of-ugg h2 {
+        font-size: 30px;
+      }
+      #parallax-world-of-ugg .block {
+        padding: 30px;
+      }
+      #parallax-world-of-ugg .parallax-one,
+      #parallax-world-of-ugg .parallax-two,
+      #parallax-world-of-ugg .parallax-three,
+      #parallax-world-of-ugg .parallax-four {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      #parallax-world-of-ugg .block {
+        padding: 30px 15px;
+        width: 290px;
+      }
+    }
+
+    /* coba Media Queries */
+
+    /* CSS untuk perangkat tablet */
+    @media (max-width: 991px) {
+      .judul {
+        padding-top: 200px;
+        padding-bottom: 200px;
+        font-size: 70px;
+      }
+      .zoom-fx {
+        display: none;
+      }
+
+      a .img-img {
+        width: 500px;
+        height: 275px;
+      }
+
+      p {
+        color: #000;
+      }
+      .row:nth-child(2) .img {
+        left: 5%;
+      }
+
+      .row:nth-child(3) .img {
+        position: relative;
+        left: 40%;
+      }
+
+      .row:nth-child(4) .img {
+        position: relative;
+        left: 5%;
+      }
+
+      #parallax-world-of-ugg h3 {
+        font-size: 16px;
+        font-weight: 200;
+        letter-spacing: 8px;
+        line-height: normal;
+      }
+
+      #parallax-world-of-ugg .title {
+        padding: 30px;
+      }
+
+      #parallax-world-of-ugg h1 {
+        word-spacing: normal;
+      }
+      .sejarah-agama {
+        display: none;
+      }
+      .hero-scroller {
+        display: none;
+      }
+      .header-mobile-atb img {
+        width: 100%;
+      }
+      .header-mobile-atb {
+        display: flex;
+        position: absolute;
+      }
+
+      .header-mobile-atb h1 {
+        position: absolute;
+        top: 20%;
+        left: 40%;
+        color: #fff;
+        font-size: 48px;
+        text-align: center;
+      }
+      #parallax-world-of-ugg .parallax-one {
+        margin-top: 50%;
+      }
+    }
+
+    /* CSS untuk perangkat mobile */
+    @media (max-width: 767px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        padding: 0;
+      }
+      .judul {
+        padding-top: 1%;
+        padding-bottom: 1%;
+      }
+      .zoom-fx {
+        display: none;
+      }
+
+      a .img-img {
+        width: 200px;
+        height: 275px;
+        display: none;
+      }
+
+      p {
+        color: #000;
+      }
+      .row:nth-child(2) .img {
+        left: 20%;
+      }
+
+      .row:nth-child(3) .img {
+        position: relative;
+        left: 20%;
+      }
+
+      .row:nth-child(4) .img {
+        position: relative;
+        left: 20%;
+      }
+
+      nav ul li {
+        list-style: none;
+        margin-bottom: 10px;
+      }
+
+      #parallax-world-of-ugg h3 {
+        font-size: 12px;
+        font-weight: 200;
+        letter-spacing: 8px;
+        line-height: normal;
+      }
+
+      #parallax-world-of-ugg .title {
+        padding: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      #parallax-world-of-ugg h1 {
+        word-spacing: normal;
+      }
+
+      .sejarah-agama {
+        display: none;
+      }
+      .hero-scroller {
+        display: none;
+      }
+      .header-mobile-atb img {
+        width: 100%;
+      }
+      .header-mobile-atb {
+        display: flex;
+        position: absolute;
+      }
+
+      .header-mobile-atb h1 {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        color: #fff;
+        font-size: 32px;
+        text-align: center;
+      }
+      #parallax-world-of-ugg .parallax-one {
+        margin-top: 40%;
+      }
+    }
+  </style>
+
+  <body>
+    <!-- <nav>
+      <div class="mobile-menu-icon" id="mobile-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div>
+        <img class="logo" src="assets/img/logo.png" alt="logo-img" />
+      </div>
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a id="kategori-link" href="#">Budaya</a></li>
+        <li><a id="featured-link" href="#">Sejarah</a></li>
+        <li><a id="blog-link" href="# ">Wisata</a></li>
+        <li><a id="" href="#">Seni rupa</a></li>
+      </ul>
+    </nav> -->
+
+    <article>
+      <div class="smooth-scroll">
+        <div class="hero-scroller">
+          <div class="sejarah-agama">
+            <div class="section-wrapper">
+              <div class="content-sa">
+                <h1 class="hero-header h-1">Adat</h1>
+                <h1 class="hero-header h-2">Tradisi</h1>
+                <h1 class="hero-header h-3">Bali</h1>
+              </div>
+              <div class="pin-wrapper">
+                <div class="image-wrapper" id="heroImage">
+                  <img class="sa-image" src="assets/img/omedomedan.jpg" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sejarah-agama copy">
+          <div class="section-wrapper">
+            <div class="content-sa">
+              <p class="">
+                Pulau Bali, Indonesia, tidak hanya terkenal dengan keindahan alamnya yang memukau, tetapi juga dengan warisan budaya yang kaya dan beragam. Adat dan tradisi merupakan inti dari kehidupan sosial dan spiritual masyarakat Bali.
+                Adat, sebagai seperangkat norma dan tata cara yang diwariskan dari generasi ke generasi, membentuk kerangka yang mengatur perilaku, interaksi sosial, dan hubungan antaranggota masyarakat. Di sisi lain, tradisi-tradisi
+                seperti upacara adat, perayaan agama, dan pertunjukan seni memperkaya kehidupan sehari-hari dengan simbolisme, keindahan, dan kegembiraan. Dari pernikahan hingga kematian, dari upacara keagamaan hingga festival budaya, Bali
+                menyajikan sebuah panorama budaya yang begitu berwarna dan mengagumkan. Mari jelajahi kekayaan adat dan tradisi yang menjadi jati diri yang kuat bagi masyarakat Bali.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-mobile-atb">
+        <div>
+          <img src="assets/img/omedomedan.jpg" alt="" />
+        </div>
+        <div>
+          <h1>
+            ADAT <br />
+            DAN<br />
+            TRADISI
+          </h1>
+        </div>
+      </div>
+      <article>
+        <div id="parallax-world-of-ugg">
+          <section>
+            <div class="title">
+              <h3>Ayo, mari kita jelajahi beberapa adat dan tradisi yang unik di</h3>
+              <br />
+              <h1>Bali</h1>
+            </div>
+          </section>
+
+          <section id="ngaben">
+            <div class="parallax-one">
+              <h2>PERANG PANDAN</h2>
+            </div>
+          </section>
+
+          <section>
+            <div class="block">
+              <div>
+                <h1>Apa Itu Perang Pandan</h1>
+                <br />
+                <p>
+                  <span class="first-character sc">T</span>radisi Mekare-kare, yang lebih dikenal sebagai Perang Pandan, merupakan sebuah ritual yang diadakan secara tahunan di Desa Tenganan, Bali. Ritual ini tidak hanya sekadar sebuah
+                  pertarungan fisik, namun juga memiliki makna spiritual dan simbolis yang dalam bagi masyarakat setempat. Tradisi ini dianggap sebagai penghormatan kepada Dewa Indra, dewa perang, dan merupakan bagian integral dari upacara
+                  keagamaan terbesar di desa tersebut, yaitu Sasih Sembah. Tradisi Mekare-kare dijadwalkan secara rutin setiap tahun pada bulan kelima dalam kalender khusus Desa Tenganan, yang dikenal sebagai sasih kalima. Meskipun dalam
+                  kalender Masehi tradisi ini biasanya berlangsung sekitar bulan Juni. Pelaksanaan Mekare-kare berlangsung selama dua hari berturut-turut, dengan lokasi pertempuran pada hari pertama diadakan di Petemu Kaja, dan di depan
+                  Bale Agung pada hari kedua. Dalam upacara Mekare-kare, para pemuda desa berpartisipasi dalam pertarungan menggunakan tongkat yang dilapisi dengan daun pandan yang tajam. Meskipun pertarungan tersebut tampak keras, namun
+                  tidak ada niat untuk melukai satu sama lain. Sebaliknya, tradisi ini merupakan simbol pengorbanan, keberanian, dan solidaritas antaranggota masyarakat Tenganan.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Properti Tradisi Mekare-kare atau Perang Pandan</h1>
+                <br />
+                <p class="margin-top-10">
+                  alam tradisi ini, pandan berduri dipersiapkan dengan ukuran yang seragam dan diikat seperti gada, yang kemudian digunakan sebagai senjata dalam pertarungan. Selain itu, para partisipan Perang Pandan juga dilengkapi dengan
+                  perisai dari rotan untuk melindungi diri mereka dari cedera. Para pria yang terlibat dalam Perang Pandan hanya mengenakan pakaian tradisional Bali, termasuk sarung (kamen), selendang (saput), dan ikat kepala (udeng), tanpa
+                  memakai baju sehingga dada mereka terbuka. Hal ini menunjukkan tingkat keberanian dan ketangguhan yang dihadirkan oleh para pemuda dalam mengikuti tradisi ini. Properti tradisional seperti pandan berduri dan perisai rotan
+                  bukan hanya alat pertarungan, tetapi juga merupakan simbol dari nilai-nilai keberanian, pengorbanan, dan semangat kebersamaan dalam menjaga tradisi dan budaya yang diwariskan secara turun temurun oleh masyarakat Tenganan.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Pelaksanaan Tradisi Mekare-kare</h1>
+                <br />
+                <p class="margin-top-10">
+                  radisi Mekare-kare, atau Perang Pandan, tidak hanya melibatkan pertarungan fisik dengan senjata pandan berduri, tetapi juga menyertakan upacara ritual yang kaya akan makna dan simbolisme. Sebelum pertarungan dimulai, para
+                  peserta saling menuangkan tuak sebagai tanda permulaan acara. Pemimpin adat di Desa Tenganan kemudian memberikan aba-aba sebagai tanda dimulainya Perang Pandan. Saat pertarungan berlangsung, dua orang peserta yang akan
+                  saling menyerang dan bertahan dipilih, sementara satu orang wasit bertindak sebagai penengah. Dengan alunan tabuhan gamelan sebagai latar belakang, kedua peserta saling menyerang menggunakan pandan dalam suasana yang penuh
+                  semangat. Pertarungan berlangsung selama sekitar satu menit, hingga wasit menghentikan pertandingan. Perang Pandan dilakukan secara bergantian dengan peserta lainnya, bergiliran di antara mereka. Setelah acara selesai,
+                  hampir semua peserta akan mengalami luka di seluruh tubuh mereka akibat duri daun pandan. Oleh karena itu, mereka diberi perawatan menggunakan ramuan tradisional dari parutan kunyit dan lengkuas, yang dicampur dengan
+                  minyak kelapa untuk mengobati luka-luka tersebut. Meskipun pertarungan berlangsung sengit dan meninggalkan luka, tidak ada rasa dendam atau amarah di antara peserta. Mereka melakukannya dengan ikhlas sebagai bagian dari
+                  upacara adat, dengan harapan untuk mendapatkan berkah dan keberuntungan bagi komunitas mereka.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="nyepi">
+            <div class="parallax-two">
+              <h2>OMED-OMEDAN</h2>
+            </div>
+          </section>
+
+          <section>
+            <div class="block">
+              <div>
+                <h1>Apa Itu Tradisi Omend-Omedan</h1>
+                <br />
+                <p class="margin-top-10">
+                  <span class="first-character ny">O</span>med-omedan adalah sebuah ritual tahunan yang dilakukan oleh kaum muda di Bali pada hari pertama setelah perayaan Hari Raya Nyepi, yang dikenal sebagai Ngembak Geni. Ritual ini hanya
+                  diadakan di wilayah Banjar Kaja, Desa Sesetan, Denpasar, Bali, dan telah menjadi salah satu atraksi wisata yang menarik bagi pengunjung. Dalam acara ini, para peserta, terutama kaum muda, berpelukan dan saling menarik
+                  secara bergantian antara dua kelompok. Tujuan dari ritual ini adalah untuk memperkuat solidaritas dan rasa kekeluargaan di antara para peserta. Omed-omedan juga dianggap sebagai bentuk perayaan dan kegembiraan bagi
+                  masyarakat setempat, di mana mereka bisa bersatu dan merayakan hubungan sosial yang kuat.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Asal-usul Omed-omedan</h1>
+                <br />
+                <p class="margin-top-10">
+                  Asal-usul Omed-omedan dapat ditelusuri hingga abad ke-17, di mana tradisi ini diyakini berasal dari masyarakat Kerajaan Puri Oka di Denpasar Selatan. Konon, tradisi ini dimulai sebagai permainan tarik-menarik yang
+                  diinisiasi oleh penduduk setempat. Seiring berjalannya waktu, permainan tersebut berkembang menjadi saling rangkul antar peserta. Namun, ketika suasana permainan menjadi gaduh, Raja Puri Oka yang sedang sakit keras merasa
+                  terganggu dan marah. Namun, ketika sang raja keluar dan melihat permainan Omed-omedan, ia tiba-tiba sembuh dari sakitnya. Insiden tersebut menginspirasi sang raja untuk memerintahkan agar Omed-omedan diselenggarakan setiap
+                  tahun, khususnya pada saat Ngembak Geni, hari pertama setelah perayaan Hari Raya Nyepi. Meskipun demikian, tradisi Omed-omedan pernah dihentikan penyelenggarannya di Desa Sesetan. Saat itu, terjadi kejadian aneh di mana
+                  dua ekor babi terlihat saling berkelahi di depan pelataran pura. Masyarakat menganggap kejadian tersebut sebagai pertanda buruk, sehingga tradisi Omed-omedan akhirnya dilanjutkan kembali sebagai bagian dari kehidupan dan
+                  budaya masyarakat Bali.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Cara Pelaksanaan Omed-omedan</h1>
+                <br />
+                <p class="margin-top-10">
+                  Pelaksanaan Omed-omedan dimulai dengan pembagian peserta menjadi dua kelompok, yaitu kelompok wanita (taruni) dan pria (taruna). Sebelum ritual dimulai, seluruh peserta berkumpul untuk mengikuti upacara persembahyangan di
+                  Pura Banjar, di mana mereka memohon kesucian hati dan kelancaran dalam menjalankan ritual Omed-omedan. Setelah itu, acara dilanjutkan dengan pertunjukan Tari Barong Bangkung, yang bertujuan untuk mengingatkan peristiwa
+                  beradu sepasang babi hutan di desa tersebut. Saat pelaksanaan ritual, kedua kelompok akan berhadapan satu sama lain di bawah pengawasan polisi adat (pacalang). Secara bergantian, dipilih satu orang dari masing-masing
+                  kelompok untuk diangkat dan diarak ke posisi paling depan barisan. Selanjutnya, pemuda dan pemudi yang berada di barisan paling depan saling berpelukan. Saat berpelukan, kedua kelompok akan berusaha menarik rekannya hingga
+                  salah satu dari mereka terlepas. Jika kedua pasangan tidak bisa dilepaskan, mereka akan disiram dengan air hingga basah kuyup. Tradisi Omed-omedan kadang disalahpahami oleh masyarakat luar sebagai ritual ciuman. Namun,
+                  dalam pandangan masyarakat Desa Sesetan, ritual ini merupakan bentuk silaturahmi dan perdamaian antar sesama warga, yang juga dikenal sebagai masima krama atau dharma shanti. Seiring perkembangannya, Omed-omedan telah
+                  menjadi daya tarik bagi wisatawan lokal dan internasional, bahkan diadakan sebagai sebuah festival dengan nama Omed-omedan Cultural Heritage. Festival ini juga dimeriahkan dengan pasar malam dan pertunjukan seni.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="melasti">
+            <div class="parallax-three">
+              <h2>WATANGAN MATAH</h2>
+            </div>
+          </section>
+
+          <section>
+            <div class="block">
+              <div>
+                <h1>Apa Itu wetangan Matah</h1>
+                <br />
+                <p class="margin-top-10">
+                  <span class="first-character atw">W</span>atangan matah adalah sebuah prosesi sakral yang terjadi dalam pertunjukan Calonarang di Bali. Dalam konteks tradisi ini, watang merujuk pada seseorang yang dipilih untuk memainkan
+                  peran mati suri, yang merupakan korban dari ilmu leak atau sihir hitam yang diperankan dalam pertunjukan. Prosesi watangan matah merupakan bagian penting dari pertunjukan Calonarang karena memberikan dimensi mistis dan
+                  dramatis yang mendalam. Seseorang yang menjadi watang akan memainkan peran mati suri dengan penuh dedikasi dan keberanian. Mereka dipersiapkan secara mental dan spiritual untuk memasuki keadaan mati suri, di mana mereka
+                  akan mengalami pengalaman yang mendalam dan intens. Prosesi ini tidaklah tanpa risiko, karena watang menghadapi kemungkinan untuk benar-benar masuk ke dalam keadaan mati suri selama prosesnya. Meskipun risikonya tinggi,
+                  watangan matah telah menjadi bagian tak terpisahkan dari tradisi Calonarang di Bali selama bertahun-tahun. Mereka menambahkan nuansa keagungan dan ketegangan yang memukau bagi penonton, sementara juga menghidupkan makna
+                  dan pesan spiritual yang terkandung dalam pertunjukan. Watangan matah, dengan dedikasi dan pengorbanannya, menjadi bagian dari warisan budaya yang kaya dan berharga bagi masyarakat Bali.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Pelaksanaan Watangan matah</h1>
+                <br />
+                <p class="margin-top-10">
+                  Dalam pergelaran Calonarang, watangan adalah orang yang bersedia "dipersembahkan" sebagai perangsang bagi para leak atau praktisi ilmu hitam di sekitar area tersebut. Pada ritual watangan matah, sukarelawan tersebut
+                  menjalani proses pelepasan roh, menyebabkan mereka masuk ke dalam keadaan mati suri dan menjalani upacara seolah-olah mereka telah meninggal. Karena melibatkan pelepasan roh, ada risiko kematian bagi orang yang menjadi
+                  watangan jika mereka tidak bisa dihidupkan kembali. Dengan kata lain, mereka tidak hanya tidur biasa, tetapi perlu mempersiapkan diri secara fisik dan spiritual karena risiko yang dihadapi. Proses berikutnya, watangan
+                  diarak oleh masyarakat menuju kuburan dan berfungsi sebagai perangkap untuk menarik kedatangan leak atau praktisi ilmu hitam. Tanda bahwa mereka telah tiba biasanya adalah lolongan anjing. Tujuan sebenarnya dari ritual
+                  watangan adalah untuk menyadarkan pelaku ilmu hitam bahwa mereka sedang berjalan di jalur yang salah, sehingga mereka berhenti melakukan kejahatan kepada orang lain. Namun, seringkali tradisi watangan matah menjadi bentuk
+                  pertarungan spiritual antara pelaku ilmu hitam dan peserta ritual yang telah mempelajari ilmu yang kompleks. Dalam pertarungan batin yang tak terlihat, jika peserta ritual gagal mengalahkan pelaku ilmu hitam, maka watangan
+                  lah yang berisiko kehilangan nyawanya. Meskipun tidak ada batasan usia bagi orang yang ingin menjadi watangan, mereka harus siap secara fisik dan spiritual karena taruhannya adalah nyawa. Tradisi watangan matah memang
+                  penuh risiko, tetapi juga dapat membendung kekuatan ilmu hitam. Setelah netralisasi ilmu hitam melalui tradisi watangan dalam pertunjukan Calonarang, dampaknya adalah berkurangnya aura negatif di sekitar lokasi
+                  pertunjukan.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="melasti">
+            <div class="parallax-four">
+              <h2>MEPANDES</h2>
+            </div>
+          </section>
+
+          <section>
+            <div class="block">
+              <div>
+                <h1>Apa Itu Tradisi Omend-Omedan</h1>
+                <br />
+                <p class="margin-top-10">
+                  <span class="first-character ny">U</span>pacara potong gigi, yang dikenal sebagai mepandes, mesangih, atau metatah dalam bahasa Bali, merupakan ritual keagamaan yang diwajibkan bagi umat Hindu di Bali, terutama mereka yang
+                  telah memasuki masa remaja. Ritual ini bukan hanya sekadar tradisi turun-temurun, tetapi juga memiliki nilai-nilai pendidikan budi pekerti yang sangat penting bagi pembentukan karakter anak. Melalui prosesi potong gigi,
+                  diharapkan sifat-sifat negatif seperti keraksasaan dapat dinetralisir dan dikendalikan, sementara sifat-sifat kebaikan dapat diperkuat. Upacara ini tidak hanya menjadi bagian dari budaya Bali yang kaya, tetapi juga
+                  menandai peralihan penting dalam kehidupan seseorang menuju kedewasaan. Ritual potong gigi juga memiliki makna yang mendalam bagi kehidupan, seperti pergantian perilaku menuju kedewasaan yang lebih bijaksana, pemenuhan
+                  kewajiban orang tua terhadap anak dalam menemukan hakekat manusia sejati, serta harapan untuk bertemu kembali di surga setelah keduanya meninggal dunia. Proses metatah, yang berasal dari kata "tatah" yang berarti "pahat"
+                  dalam bahasa Bali, dilakukan dengan hati-hati. Selain mengikir gigi, peserta juga diminta untuk mencicipi enam rasa yang masing-masing memiliki simbolisasi yang mendalam, mulai dari ketabahan dalam menghadapi kesulitan
+                  hingga kebijaksanaan dalam menjalani kehidupan. Upacara ini biasanya dilaksanakan pada pagi hari, dengan persiapan khusus sehari sebelumnya, dan dapat diikuti oleh masyarakat yang kurang mampu melalui pelaksanaan metatah
+                  massal yang sering diselenggarakan secara gratis.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Makna dan Tujuan Metatah</h1>
+                <br />
+                <p class="margin-top-10">
+                  Upacara Metatah, atau potong gigi, dalam tradisi Hindu di Bali memiliki makna mendalam yang mencerminkan perjalanan spiritual dan moral seseorang dalam menghadapi tantangan kehidupan. Proses ini melibatkan mengikir enam
+                  gigi yang melambangkan simbolisasi dari enam rasa yang mencerminkan berbagai aspek kepribadian dan perilaku manusia. Rasa pahit dan asam melambangkan ketabahan dalam menghadapi kesulitan, sedangkan rasa pedas menggambarkan
+                  kontrol atas kemarahan. Selain itu, rasa sepat melambangkan ketaatan pada norma-norma, rasa asin menandakan kebijaksanaan, dan rasa manis mewakili kebahagiaan. Upacara Metatah bukan hanya sekadar ritual fisik, tetapi juga
+                  memiliki tujuan yang dalam bagi umat Hindu. Pertama, upacara ini menandai peralihan seseorang menuju kedewasaan dan kemampuan untuk mengendalikan diri dari nafsu-nafsu negatif. Kedua, upacara ini memenuhi kewajiban orang
+                  tua dalam membimbing anak-anaknya menuju pemahaman yang lebih mendalam tentang kehidupan dan spiritualitas. Terakhir, upacara Metatah juga dipercaya sebagai sarana untuk memastikan pertemuan kembali antara orang tua dan
+                  anak di alam surga setelah keduanya meninggal dunia. Selain itu, upacara Metatah juga memiliki tujuan untuk mengendalikan sifat-sifat negatif yang dianggap sebagai musuh dalam tradisi Hindu, yang dikenal sebagai Sad Ripu.
+                  Sifat-sifat ini, seperti hawa nafsu, tamak, kemabukan, kebingungan, kemarahan, dan iri hati, dianggap sebagai ancaman bagi kestabilan spiritual seseorang. Melalui upacara Metatah, umat Hindu berupaya untuk membersihkan
+                  diri dari sifat-sifat tersebut dan mengubahnya menjadi sifat-sifat positif yang mendukung pertumbuhan spiritual. Proses mengikir enam gigi dalam upacara ini menjadi simbolisasi dari usaha untuk mengendalikan dan mengurangi
+                  pengaruh dari keenam sifat negatif tersebut. Dengan demikian, upacara Metatah menjadi salah satu bentuk upaya spiritual dalam menjaga keharmonisan dan kesejahteraan spiritual umat Hindu di Bali.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Tahapan Metatah</h1>
+                <br />
+                <p class="margin-top-10">
+                  Tahapan Metatah dalam tradisi Hindu di Bali mengikuti serangkaian prosesi yang melibatkan upacara-upacara penting dengan makna-makna mendalam. Pertama adalah Magumi Padangan, di mana peserta memohon air suci untuk
+                  membersihkan diri secara sekala dan niskala, menandakan kesiapan untuk mengemban tanggung jawab keluarga. Tahap berikutnya adalah Ngekeb, di mana peserta berjanji untuk mengendalikan sifat-sifat negatif dalam dirinya.
+                  Kemudian, dilanjutkan dengan prosesi Mabyakala di halaman depan rumah untuk membersihkan diri dari roh-roh jahat. Sembahyang ke Merajan menjadi tahapan penting selanjutnya, di mana peserta bersembahyang dan memohon
+                  keselamatan kepada leluhur serta Sang Hyang Uma. Setelah itu, dilakukan prosesi Nrgajah/Ngendag, di mana peserta secara simbolis merajah tubuhnya dengan menggunakan cincin permata mirah atau tangkai daun sirih yang diolesi
+                  madu, sebagai simbol penyatuan bhuana agung dan bhuana alit serta tolak bala yang dapat mengganggu kehidupan manusia. Tahap utama dari Metatah adalah upacara potong gigi, di mana peserta tidur terlentang dengan posisi
+                  tangan amustikarana, dan dilakukan prosesi potong gigi oleh sangging. Setelahnya, peserta membersihkan diri dengan mandi di sungai sambil mengiringi sekah ngening untuk melebur sifat-sifat buruk yang melekat pada dirinya.
+                  Tahapan terakhir adalah Mejaya-jaya, di mana peserta memohon doa restu kepada Ida Sang Hyang Widhi agar kegiatan yang telah dilakukan tidak sia-sia dan selalu dilindungi dalam kehidupannya. Setelah itu, peserta melakukan
+                  sembahyang ke pura-pura yang menjadi tempat pujaannya. Tahapan-tahapan ini menjadi bagian integral dalam keseluruhan upacara Metatah, meskipun sering disesuaikan dengan kondisi dan kebutuhan masing-masing desa, waktu, dan
+                  keadaan.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </article>
+
+    <script>
+      // Handle scroll event
+      document.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        title.style.marginTop = value * 1.1 + "px";
+        mount2.style.marginBottom = -value * 1.2 + "px";
+      });
+
+      // Change navbar background on scroll
+      const nav = document.querySelector("nav");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 500) {
+          nav.classList.add("scrolled");
+          nav.classList.add("show"); // Menunjukkan navbar saat digulir
+        } else {
+          nav.classList.remove("scrolled");
+          nav.classList.remove("show"); // Sembunyikan navbar saat digulir ke atas lagi
+        }
+      });
+    </script>
+
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      const locoScroll = new LocomotiveScroll({
+        el: document.querySelector(".smooth-scroll"),
+        smooth: true,
+        lerp: 0.08,
+      });
+
+      locoScroll.on("scroll", ScrollTrigger.update);
+
+      ScrollTrigger.scrollerProxy(".smooth-scroll", {
+        scrollTop(value) {
+          return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+        },
+        pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed",
+      });
+
+      const vw = (coef) => window.innerWidth * (coef / 100);
+      const vh = (coef) => window.innerHeight * (coef / 100);
+
+      const heroScroller = gsap.timeline({
+        paused: true,
+        scrollTrigger: {
+          trigger: ".hero-header.h-1",
+          scroller: ".smooth-scroll",
+          pin: ".pin-wrapper",
+          start: "top 10%",
+          scrub: true,
+          end: `${vh(100)}`,
+        },
+      });
+
+      heroScroller
+        .to(
+          [".hero-header.h-1", ".hero-header.h-3"],
+          {
+            scale: 2,
+            y: vh(150),
+            xPercent: -150,
+          },
+          "heroScroll"
+        )
+        .to(
+          ".hero-header.h-2",
+          {
+            scale: 2,
+            y: vh(150),
+            xPercent: 150,
+          },
+          "heroScroll"
+        )
+        .to(
+          "#heroImage",
+          {
+            scaleY: 2.5,
+          },
+          "heroScroll"
+        )
+        .to(
+          "#heroImage .sa-image",
+          {
+            scaleX: 2.5,
+            xPercent: 50,
+          },
+          "heroScroll"
+        );
+
+      ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+      ScrollTrigger.refresh();
+    </script>
+  </body>
+</html>
