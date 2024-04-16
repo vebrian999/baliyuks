@@ -310,10 +310,17 @@ strong {
   white-space: nowrap;
   position: relative;
   background-color: #00a9ff;
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 200px;
+  padding-bottom: 200px;
   margin: 40px 0px;
   text-align: center;
+
+  background-image: url("../assets/img/bg-sejarah.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: auto;
 }
 
 .judul:before,
@@ -1411,7 +1418,6 @@ margin: 20px;
     width: 100%;
     padding: 20px;
     margin: 0%;
-    
   }
 
   .bg-sjr1-kiri {

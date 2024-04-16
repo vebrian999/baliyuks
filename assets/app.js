@@ -190,7 +190,7 @@ gsap.to(box_items, {
     scrub: 3,
     snap: 1 / (box_items.length - 1),
     end: "+=" + section_2.offsetWidth,
-    start: "top center-=520", // Menggeser trigger ke atas sebanyak 530 piksel
+    start: "top center-=930", // Menggeser trigger ke atas sebanyak 530 piksel
   },
 });
 

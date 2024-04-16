@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- My Own Styles -->
+    <link rel="stylesheet" href="assets/app.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .img-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a .img-img {
+      position: relative;
+      width: 700px;
+      height: 275px;
+      z-index: 99;
+      transition: transform 0.6s ease; /* Transisi smooth untuk transformasi */
+    }
+
+    a .img-img:hover {
+      transform: scale(1.1); /* Perbesar elemen saat hover */
+    }
+
+    .zoom-fx {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      width: 100%;
+      z-index: 2;
+    }
+    .letters {
+      flex: 1;
+      display: flex;
+      text-transform: uppercase;
+    }
+
+    .letters > div {
+      flex: 1;
+      font-size: 200px;
+      font-weight: 400;
+      color: #000;
+      text-align: center;
+    }
+
+    .website-content {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .img-holder {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      background: #fff;
+      clip-path: polygon(37.5% 20%, 62.5% 20%, 62.5% 80%, 37.5% 80%);
+      transform: rotate(30deg);
+    }
+
+    .img-holder .img-img {
+      position: relative;
+      transform: scale(2);
+    }
+    .content-holder {
+      position: relative;
+      top: -5px;
+      width: 100%;
+      background: #89cff3;
+      color: #fff;
+      padding: 1em;
+    }
+
+    .row {
+      margin: 2em 1em;
+    }
+
+    .img {
+      width: 700px;
+      height: 275px;
+    }
+
+    .row:nth-child(2) .img {
+      position: relative;
+      left: 10%;
+    }
+
+    .row:nth-child(3) .img {
+      position: relative;
+      left: 40%;
+    }
+
+    .row:nth-child(4) .img {
+      position: relative;
+      left: 10%;
+    }
+
+    .row:nth-child(6) .img {
+      position: relative;
+      left: 30%;
+      margin: 4em 0;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+
+    /* Override UGG site */
+    #main {
+      width: 100%;
+      padding: 0;
+    }
+    .content-asset p {
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      display: none;
+    }
+
+    /* Helpers */
+    /**************************/
+    .margin-top-10 {
+      padding-top: 10px;
+    }
+    .margin-bot-10 {
+      padding-bottom: 10px;
+    }
+
+    /* Typography */
+    /**************************/
+    #parallax-world-of-ugg h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: black;
+      padding: 0;
+      margin: 0;
+    }
+    #parallax-world-of-ugg h2 {
+      font-family: "Oswald", sans-serif;
+      font-size: 70px;
+      letter-spacing: 10px;
+      text-align: center;
+      color: white;
+      font-weight: 400;
+      text-transform: uppercase;
+      z-index: 10;
+      opacity: 0.9;
+    }
+    #parallax-world-of-ugg h3 {
+      font-family: "Oswald", sans-serif;
+      font-size: 14px;
+      line-height: 0;
+      font-weight: 400;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: black;
+    }
+    #parallax-world-of-ugg p {
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+    }
+    .first-character {
+      font-weight: 400;
+      float: left;
+      font-size: 84px;
+      line-height: 64px;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
+      font-family: "Source Sans Pro", sans-serif;
+    }
+
+    .sc {
+      color: #3b8595;
+    }
+    .ny {
+      color: #3d3c3a;
+    }
+    .atw {
+      color: #c48660;
+    }
+
+    /* Section - Title */
+    /**************************/
+    #parallax-world-of-ugg .title {
+      background: white;
+      padding: 60px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #parallax-world-of-ugg .title h1 {
+      font-size: 35px;
+      letter-spacing: 8px;
+    }
+
+    /* Section - Block */
+    /**************************/
+    #parallax-world-of-ugg .block {
+      background: white;
+      padding: 60px;
+      width: 820px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    #parallax-world-of-ugg .block-gray {
+      background: #f2f2f2;
+      padding: 60px;
+    }
+    #parallax-world-of-ugg .section-overlay-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.7;
+    }
+
+    /* Section - Parallax */
+    /**************************/
+    #parallax-world-of-ugg .parallax-one {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/agama+ritual.png");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+    #parallax-world-of-ugg .parallax-two {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/nyepi.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    #parallax-world-of-ugg .parallax-three {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/melasti.jpeg");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    /* Extras */
+    /**************************/
+    #parallax-world-of-ugg .line-break {
+      border-bottom: 1px solid black;
+      width: 150px;
+      margin: 0 auto;
+    }
+
+    /* Media Queries */
+    /**************************/
+    @media screen and (max-width: 959px) and (min-width: 768px) {
+      #parallax-world-of-ugg .block {
+        padding: 40px;
+        width: 620px;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      #parallax-world-of-ugg .block {
+        padding: 30px;
+        width: 420px;
+      }
+      #parallax-world-of-ugg h2 {
+        font-size: 30px;
+      }
+      #parallax-world-of-ugg .block {
+        padding: 30px;
+      }
+      #parallax-world-of-ugg .parallax-one,
+      #parallax-world-of-ugg .parallax-two,
+      #parallax-world-of-ugg .parallax-three {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      #parallax-world-of-ugg .block {
+        padding: 30px 15px;
+        width: 290px;
+      }
+    }
+
+    /* coba Media Queries */
+
+    /* CSS untuk perangkat tablet */
+    @media (max-width: 991px) {
+      .judul {
+        padding-top: 200px;
+        padding-bottom: 200px;
+        font-size: 70px;
+      }
+      .zoom-fx {
+        display: none;
+      }
+
+      a .img-img {
+        width: 500px;
+        height: 275px;
+      }
+
+      p {
+        color: #000;
+      }
+      .row:nth-child(2) .img {
+        left: 5%;
+      }
+
+      .row:nth-child(3) .img {
+        position: relative;
+        left: 40%;
+      }
+
+      .row:nth-child(4) .img {
+        position: relative;
+        left: 5%;
+      }
+
+      #parallax-world-of-ugg h3 {
+        font-size: 16px;
+        font-weight: 200;
+        letter-spacing: 8px;
+        line-height: normal;
+      }
+
+      #parallax-world-of-ugg .title {
+        padding: 30px;
+      }
+
+      #parallax-world-of-ugg h1 {
+        word-spacing: normal;
+      }
+    }
+
+    /* CSS untuk perangkat mobile */
+    @media (max-width: 767px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        padding: 0;
+      }
+      .judul {
+        padding-top: 1%;
+        padding-bottom: 1%;
+      }
+      .zoom-fx {
+        display: none;
+      }
+
+      a .img-img {
+        width: 200px;
+        height: 275px;
+        display: none;
+      }
+
+      p {
+        color: #000;
+      }
+      .row:nth-child(2) .img {
+        left: 20%;
+      }
+
+      .row:nth-child(3) .img {
+        position: relative;
+        left: 20%;
+      }
+
+      .row:nth-child(4) .img {
+        position: relative;
+        left: 20%;
+      }
+
+      nav ul li {
+        list-style: none;
+        margin-bottom: 10px;
+      }
+
+      #parallax-world-of-ugg h3 {
+        font-size: 12px;
+        font-weight: 200;
+        letter-spacing: 8px;
+        line-height: normal;
+      }
+
+      #parallax-world-of-ugg .title {
+        padding: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      #parallax-world-of-ugg h1 {
+        word-spacing: normal;
+      }
+    }
+  </style>
+
+  <body>
+    <!-- <nav>
+      <div class="mobile-menu-icon" id="mobile-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div>
+        <img class="logo" src="assets/img/logo.png" alt="logo-img" />
+      </div>
+      <ul>
+        <li><a href="#">Beranda</a></li>
+        <li><a id="kategori-link" href="#">Budaya</a></li>
+        <li><a id="featured-link" href="#">Sejarah</a></li>
+        <li><a id="blog-link" href="# ">Wisata</a></li>
+        <li><a id="" href="#">Seni rupa</a></li>
+      </ul>
+    </nav> -->
+    <div class="zoom-fx">
+      <div class="letters">
+        <div>A</div>
+        <div>G</div>
+        <div>A</div>
+        <div>M</div>
+        <div>A</div>
+      </div>
+      <div class="letters">
+        <div>R</div>
+        <div>I</div>
+        <div>T</div>
+        <div>U</div>
+        <div>A</div>
+        <div>L</div>
+      </div>
+    </div>
+    <div class="website-content">
+      <div class="img-holder">
+        <img class="img-img" src="assets/img/agama+ritual.png" alt="" />
+      </div>
+
+      <div class="content-holder">
+        <div class="row">
+          <h1 class="judul">Agama dan Ritual</h1>
+        </div>
+
+        <div class="row">
+          <a href="#ngaben" class="img">
+            <img class="img-img" src="assets/img/agama+ritual.png" alt="" />
+          </a>
+        </div>
+
+        <div class="row">
+          <a href="#nyepi" class="img">
+            <img class="img-img" src="assets/img/nyepi.jpg" alt="" />
+          </a>
+        </div>
+
+        <div class="row">
+          <a href="#melasti" class="img">
+            <img class="img-img" src="assets/img/melasti.jpeg" alt="" />
+          </a>
+        </div>
+
+        <div class="row">
+          <p>
+            Ritual dan keagamaan di Bali merujuk pada serangkaian praktik dan upacara yang dilakukan oleh masyarakat setempat sebagai ekspresi dari keyakinan dan tradisi keagamaan Hindu yang kaya. Dalam kehidupan sehari-hari, ritual-ritual
+            ini menjadi bagian integral dari pola pikir dan tata nilai masyarakat, memengaruhi segala aspek kehidupan mulai dari kelahiran hingga kematian. Masyarakat Bali menganggapnya sebagai cara untuk memelihara hubungan yang harmonis
+            dengan para dewa, leluhur, dan alam semesta. Ini mencakup berbagai upacara persembahan, penyucian, perayaan, dan penghormatan terhadap para dewa, yang menjadi pusat kehidupan spiritual dan budaya di pulau ini.
+          </p>
+        </div>
+
+        <div class="row">
+          <p>
+            Lebih dari sekadar praktik keagamaan, ritual-ritual ini juga membentuk dasar dari identitas dan keberlangsungan budaya Bali. Mereka diwariskan secara turun-temurun dari generasi ke generasi, meleburkan unsur-unsur agama, seni,
+            dan filosofi dalam setiap aspeknya. Selain berfungsi sebagai sarana untuk beribadah dan memuja, ritual-ritual ini juga memiliki peran penting dalam menjaga keseimbangan alam, memperkuat ikatan sosial, serta memelihara kesatuan
+            dan harmoni dalam masyarakat Bali yang majemuk. nah mari simak beberapa ritual dan keagamaan di bali yang unik tersebut.Ayo, mari kita jelajahi beberapa ritual dan kegiatan keagamaan yang unik di Bali.
+          </p>
+        </div>
+      </div>
+      <article>
+        <div id="parallax-world-of-ugg">
+          <section>
+            <div class="title">
+              <h3>Ayo, mari kita jelajahi beberapa ritual dan kegiatan keagamaan yang unik di</h3><br>
+              <h1>Bali</h1>
+            </div>
+          </section>
+
+          <section id="ngaben">
+            <div class="parallax-one">
+              <h2>NGABEN</h2>
+            </div>
+          </section>
+
+          <section>
+            <div class="block">
+              <div>
+                <h1>Asal Usul Upacara Ngaben</h1>
+                <br />
+                <p>
+                  <span class="first-character sc">N</span>gaben, sebuah ritual upacara kematian di Bali, dianggap sebagai salah satu acara kebudayaan yang penting dan wajib dilakukan setelah ada seseorang yang meninggal dunia. Dalam
+                  konteks kepercayaan Hindu, Ngaben memiliki makna yang dalam; secara harfiah, Ngaben berarti memisahkan jiwa dari jasad melalui proses kremasi. Asal usul ritual ini dapat ditelusuri kembali ke Bharatayuddha, keturunan
+                  kaisar Bharata di India sekitar 400 SM. Mereka percaya bahwa kremasi akan mengembalikan tubuh almarhum ke elemen alamiahnya, yang berkaitan dengan energi air, panas, angin, dan Bumi. Bagi umat Hindu, Ngaben bukan hanya
+                  sekadar upacara perpisahan, tetapi juga proses pembebasan jiwa dari perbuatan buruk selama hidup di dunia, dengan harapan bahwa jiwa akan diantarkan ke surga dan bereinkarnasi menjadi pribadi yang lebih baik. Meskipun
+                  telah berabad-abad berlalu sejak masuknya tradisi Ngaben ke Bali pada abad ke-8, ritual ini tetap diwariskan secara turun-temurun dan dianggap sebagai bagian tak terpisahkan dari identitas dan kebudayaan Hindu Bali. Bahkan
+                  di era modern ini, kebudayaan Ngaben terus dijunjung tinggi dan menjadi bagian penting dari tradisi agama Hindu di Bali, memperkaya warisan budaya yang kaya dan berharga bagi masyarakat setempat.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Tujuan Ritual Ngaben</h1>
+                <br />
+                <p class="margin-top-10">
+                  Tujuan dari upacara Ngaben adalah untuk membersihkan amal seseorang yang telah meninggal dunia. Setiap anggota keluarga bertanggung jawab untuk mendampingi mendiang dalam perjalanan menuju kehidupan berikutnya. Dalam
+                  keyakinan Hindu Bali, tubuh manusia terdiri dari dimensi spiritual dan fisik. Saat seseorang meninggal, diyakini bahwa kematian 'memadamkan' fungsi tubuh fisik, namun roh atau atma tetap hidup selamanya. Proses kremasi dan
+                  pelemparan abu ke sungai atau laut bertujuan untuk membebaskan roh dari belenggu dunia materi, memungkinkannya bersatu dengan Tuhan (Mokshatam Atmanam). Selain memperjuangkan arwah, Ngaben juga memiliki arti penting bagi
+                  keluarga yang ditinggalkan. Ini menjadi simbol penghormatan, kesediaan untuk melepaskan orang yang telah meninggalkan dunia ini, dan tanda keikhlasan keluarga dalam menghadapi kepergian yang tidak terelakkan. Dengan
+                  'membakar jenazah', upacara ini juga dimaksudkan untuk mengembalikan unsur-unsur Panca Maha Bhuta (lima unsur pembangun tubuh manusia) ke alam semula, menandakan keselarasan dengan siklus alam dan keberlanjutan kehidupan.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Proses Upacara Ngaben</h1>
+                <br />
+                <p class="margin-top-10">
+                  Proses upacara Ngaben melibatkan serangkaian tahapan yang memakan waktu cukup lama. Dimulai dengan Ngulapin, di mana keluarga memohon izin dan restu kepada Dewi Surga, dilaksanakan di Pura Dalem. Tahapan berikutnya adalah
+                  Meseh Lawang, yang bertujuan untuk memulihkan cacat atau kerusakan jenazah secara simbolis, dilakukan di catus pata atau bibir kuburan. Dilanjutkan dengan Mesiram atau Mabersih, di mana jenazah dimandikan, kadang hanya
+                  berupa tulang belulang, di rumah duka atau kuburan. Setelah itu adalah Ngaskara, tahapan penyucian jiwa tahap awal, dan Nerpana, upacara persembahan sesajen atau bebanten kepada jiwa yang meninggal. Puncak dari prosesi
+                  Ngaben adalah Ngeseng Sawa, yaitu pembakaran jenazah di setra atau kuburan. Jenazah diletakkan di dalam sebuah replika lembu yang disebut Petulangan, tempat pembakaran yang mengantar roh ke alam roh sesuai dengan
+                  perbuatannya di dunia. Setelah pembakaran, dilakukan upacara Nuduk Galih, di mana keluarga mengumpulkan sisa-sisa tulang (abu) jenazah. Prosesi terakhir adalah Nganyut, menghanyutkan abu jenazah ke laut sebagai simbol
+                  pengembalian unsur air dan bersatunya kembali sang jiwa dengan alam.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="nyepi">
+            <div class="parallax-two">
+              <h2>NYEPI</h2>
+            </div>
+          </section>
+
+          <section>
+            <div class="block">
+              <div>
+                <h1>Jejak Sejarah Hari Raya Nyepi</h1>
+                <br />
+                <p class="margin-top-10">
+                  Sejarah Hari Raya Nyepi konon bermula dari perebutan kekuasaan di India, yang dipenuhi konflik sosial dan agama yang panjang. Suku Saka muncul sebagai pemenang di bawah kepemimpinan Raja Kaniskha I dari Dinasti Kushana dan
+                  suku Yuehch. Raja tersebut berhasil merangkul seluruh suku di India tanpa merusak paham dari suku lain, membentuk kerajaan yang besar. Pada Maret tahun 78 Masehi, Raja Kaniskha I memperkenalkan sistem kalender Saka sebagai
+                  kalender kerajaan, yang berkembang pesat seiring dengan penyebaran agama Hindu. Setiap peringatan tahun Saka dianggap sebagai simbol kesatuan, kedamaian, kerukunan, dan keberhasilan. Di Bali, sejarah tahun Saka berasal
+                  dari seorang pendeta Kshatrapa Gujarat dari suku Saka yang diberi gelar Aji Saka. Kehadirannya memperkenalkan kalender Saka, yang terus berkembang hingga masa Kerajaan Majapahit. Pergantian tahun Saka terjadi pada sasih
+                  Kesanga (ke-9), jatuh pada bulan Maret-April dalam kalender Masehi. Selama bertahun-tahun, perayaan Hari Raya Nyepi telah menjadi bagian tak terpisahkan dari tradisi dan budaya Bali, mencerminkan nilai-nilai kearifan lokal
+                  yang kaya dan keberagaman agama Hindu.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Maknan dan Tujuan</h1>
+                <br />
+                <p class="margin-top-10">
+                  Nyepi, perayaan sakral bagi umat Hindu, bukan sekadar tentang kesunyian, tetapi juga tentang introspeksi dan penyucian. Saat Nyepi, umat Hindu menarik diri dari kegiatan sehari-hari untuk menciptakan kedamaian dalam diri
+                  dan di alam semesta. Larangan-larangan yang berlaku selama Nyepi, seperti tidak keluar rumah, tidak menyalakan lampu, dan tidak bekerja, bertujuan untuk membantu umat Hindu fokus pada refleksi diri dan hubungan mereka
+                  dengan Tuhan. Bahkan, seluruh aktivitas masyarakat, termasuk kantor dan sekolah, dihentikan, menandakan kehormatan terhadap makna yang mendalam dari Hari Raya Nyepi.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Fakta Menarik dan Unik Hari Raya Nyepi</h1>
+                <br />
+                <p class="margin-top-10">
+                  Hari Raya Nyepi, juga dikenal sebagai Hari Suci, memiliki tradisi yang unik dan aturan yang ketat yang harus diikuti oleh umat Hindu. Selama 24 jam, mereka harus mematuhi larangan-larangan seperti tidak menyalakan lampu,
+                  listrik, atau bahkan berbicara. Tujuannya adalah untuk menciptakan suasana sepi yang membingungkan setan-setan dan memastikan bahwa tidak ada kehidupan yang terdeteksi. Aturan ini dikenal sebagai Amati Geni, Amati
+                  Lelanguan, dan Amati Karya, yang melarang tindakan seperti menyalakan api, melakukan perjalanan, atau bahkan bekerja. Selama Nyepi, Bali menjadi sangat sunyi, hampir seolah-olah waktu berhenti berputar. Ini bukan hanya
+                  tentang patuh pada aturan, tetapi juga tentang menemukan kedamaian dalam kesunyian. Selain itu, Hari Raya Nyepi juga menjadi kesempatan bagi umat Hindu untuk merenung, berpuasa, dan bersiap menghadapi tahun baru. Dibalik
+                  larangan-larangan tersebut, terkandung kebijaksanaan yang dalam tentang pentingnya harmoni antara manusia dan alam. Hal ini membuat Nyepi bukan hanya sekadar perayaan, tetapi juga pengingat akan pentingnya memelihara
+                  keseimbangan spiritual dan hubungan yang baik dengan alam semesta.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="melasti">
+            <div class="parallax-three">
+              <h2>MELASTI</h2>
+            </div>
+          </section>
+
+          <section>
+            <div class="block">
+              <div>
+                <h1>Apa Itu Upacara Melasti?</h1>
+                <br />
+                <p class="margin-top-10">
+                  Upacara Melasti, atau dikenal juga sebagai Mekiyis, memiliki sejarah yang kaya di Bali. Ritual ini memiliki akar dalam kepercayaan Hindu yang telah melintasi berabad-abad di pulau tersebut. Dilakukan sebagai bagian dari
+                  persiapan menyambut Hari Suci Nyepi dan Tahun Baru Saka, Melasti memiliki peran penting dalam kehidupan spiritual masyarakat Bali. Tradisi ini diyakini telah ada sejak zaman kuno, dimana masyarakat Hindu Bali mempraktikkan
+                  ritual penyucian sebagai bentuk penghormatan kepada dewa-dewa dan alam semesta. Melasti juga mencerminkan kearifan lokal dalam menjaga keselarasan antara manusia dan alam, serta pentingnya menjaga kesucian batin dalam
+                  menjalani kehidupan. Seiring berjalannya waktu, ritual Melasti tetap diwariskan dari generasi ke generasi sebagai bagian tak terpisahkan dari budaya dan kepercayaan Hindu Bali.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Pelaksanaan Upacara Melasti</h1>
+                <br />
+                <p class="margin-top-10">
+                  Sebelum melaksanakan upacara Melasti, umat Hindu mengawali dengan persembahyangan yang dipimpin oleh seorang Romo dan Pinandita. Mereka memimpin seluruh umat dalam doa-doa dan membacakan kitab suci sebagai bagian dari
+                  rangkaian ibadah. Pelaksanaan persembahyangan ini berlangsung dalam satu sesi peribadatan yang khusyuk. Setelah selesai, bersama dengan para Pinandita lainnya, mereka menuju ke tepi laut untuk memulai ritual Melasti sambil
+                  terus melantunkan doa. Sampai di tengah lautan, pemimpin ritual akan melakukan larungan sesaji yang terdiri dari hewan ternak dan bunga yang diletakkan di atas anyaman pandan, semuanya disertai dengan doa-doa yang khusyuk.
+                  Para Pinandita kemudian mengambil air laut yang dianggap suci untuk menyucikan umat Hindu dan Pralingga. Ritual ini memperkuat ikatan spiritual dengan alam serta mempersiapkan umat Hindu secara fisik dan spiritual
+                  menjelang Hari Raya Nyepi.
+                </p>
+              </div>
+              <p class="line-break margin-top-10"></p>
+              <div>
+                <h1>Arti dan Tujuan Upacara Melasti</h1>
+                <br />
+                <p class="margin-top-10">
+                  Upacara Melasti memiliki arti mendalam sebagai prosesi penyucian lahir dan batin serta pembersihan alam dengan menggunakan air suci. Istilah "Melasti" diartikan sebagai penghanyutan segala kotoran alam dengan air suci,
+                  baik itu dosa yang ada dalam diri manusia maupun yang terjadi dalam lingkungan alam. Selain itu, Melasti juga dilakukan sebagai upaya membersihkan Pralingga atau perlengkapan persembahyangan. Melalui upacara Melasti, umat
+                  Hindu Bali menjalani proses pembersihan diri secara lahir dan batin, sekaligus menjalankan tanggung jawab untuk membersihkan dan merawat alam. Dalam ajaran lontar dan sastra klasik Jawa Kuno, Melasti dijelaskan sebagai
+                  suatu tindakan untuk memperkuat pengabdian dan keyakinan kepada Tuhan dan manifestasinya, serta untuk menghanyutkan penderitaan masyarakat, menghapuskan dosa, dan mencegah kerusakan alam.<br />
+                  Terdapat lima tujuan utama dalam upacara Melasti, yang meliputi penghormatan kepada Tuhan, menghilangkan penderitaan masyarakat, membimbing individu untuk mengatasi kepapanan dan dosa-dosa individu, merawat alam, serta
+                  mengambil hikmah dan nilai-nilai kehidupan yang bermakna dari tengah-tengah lautan simbolis. Dengan demikian, Melasti bukan hanya merupakan upacara ritual, tetapi juga membawa muatan nilai-nilai spiritual dan universal
+                  yang penting bagi umat Hindu Bali.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      // Handle scroll event
+      document.addEventListener("scroll", function () {
+        let value = window.scrollY;
+        title.style.marginTop = value * 1.1 + "px";
+        mount2.style.marginBottom = -value * 1.2 + "px";
+      });
+
+      // Change navbar background on scroll
+      const nav = document.querySelector("nav");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 1100) {
+          nav.classList.add("scrolled");
+          nav.classList.add("show"); // Menunjukkan navbar saat digulir
+        } else {
+          nav.classList.remove("scrolled");
+          nav.classList.remove("show"); // Sembunyikan navbar saat digulir ke atas lagi
+        }
+      });
+    </script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      document.addEventListener("DOMContentLoaded", function () {
+        const contentHolderHeight = document.querySelector(".content-holder").offsetHeight;
+        const imgHolderHeight = window.innerHeight;
+        const additionalScrollHeight = window.innerHeight;
+
+        const totalBodyHeight = contentHolderHeight + imgHolderHeight + additionalScrollHeight;
+        document.body.style.height = `${totalBodyHeight}px`;
+      });
+
+      ScrollTrigger.create({
+        trigger: ".website-content",
+        start: "-0.1% top",
+        end: "bottom bottom",
+        onEnter: () => {
+          gsap.set(".website-content", { position: "absolute", top: "195%" });
+        },
+        onLeaveBack: () => {
+          gsap.set(".website-content", { position: "fixed", top: "0" });
+        },
+      });
+
+      gsap.to(".zoom-fx .letters:first-child", {
+        x: () => -innerWidth * 3,
+        scale: 10,
+        ease: "power2.inout",
+        scrollTrigger: {
+          start: "top top",
+          end: `+=200%`,
+          scrub: 1,
+        },
+      });
+
+      gsap.to(".zoom-fx .letters:last-child", {
+        x: () => innerWidth * 3,
+        scale: 10,
+        ease: "power2.inout",
+        scrollTrigger: {
+          start: "top top",
+          end: `+=200%`,
+          scrub: 1,
+        },
+      });
+
+      ///dibawah udah bener yaa
+      gsap.to(".img-holder", {
+        rotation: 0,
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        ease: "power2.inOut",
+        scrollTrigger: {
+          start: "top top",
+          end: `+=200%`,
+          scrub: 1,
+        },
+      });
+
+      gsap.to(".img-holder .img-img", {
+        scale: 1,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          start: "top top",
+          end: `+=200%`,
+          scrub: 1,
+        },
+      });
+    </script>
+  </body>
+</html>
