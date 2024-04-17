@@ -17,6 +17,11 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
 h2 {
   font-size: 48px;
   text-align: center;
@@ -1260,7 +1265,10 @@ footer {
   nav ul {
     top: 70px;
   }
-
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
   .mobile-menu-icon {
     display: none;
   }
@@ -1329,6 +1337,11 @@ footer {
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
+  }
+
+  p {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
   }
 
   .logo-footer {
@@ -1438,9 +1451,9 @@ footer {
   h1 {
     font-size: 16px;
   }
-.lukis-lukis {
-  color: red;
-}
+  .lukis-lukis {
+    color: red;
+  }
   .popup-box {
     width: 329px;
 

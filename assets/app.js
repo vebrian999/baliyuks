@@ -60,20 +60,20 @@ document.addEventListener("DOMContentLoaded", function () {
     mount2.style.marginBottom = -value * 1.2 + "px";
   });
 
-  // Change navbar background on scroll
+
   const nav = document.querySelector("nav");
 
   window.addEventListener("scroll", function () {
     if (window.scrollY > 50) {
       nav.classList.add("scrolled");
-      nav.classList.add("show"); // Menunjukkan navbar saat digulir
+      nav.classList.add("show"); 
     } else {
       nav.classList.remove("scrolled");
-      nav.classList.remove("show"); // Sembunyikan navbar saat digulir ke atas lagi
+      nav.classList.remove("show"); 
     }
   });
 
-  // Function to change background image for jumbotron
+
   const jumbotron = document.querySelector(".jumbotron");
   const images = ["./assets/img/img1.jpg", "./assets/img/img2.jpg", "./assets/img/img3.jpg", "./assets/img/img4.jpg"];
   let currentImageIndex = 0;
@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
     changeBackgroundImage();
   }
 
-  // Call the function initially to set the initial background image
+
   changeBackgroundImage();
 
-  // Event listeners for manual navigation
+
   const nextBtn = document.getElementById("nextBtn");
   const prevBtn = document.getElementById("prevBtn");
 
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   let currentIndex = 0;
 
-  // Function to change jumbotron text with typing effect
+
   function changeText() {
     const text = texts[currentIndex];
     let index = 0;
@@ -126,21 +126,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Clear previous text
+
     jumbotronText.textContent = "";
-    // Start typing animation
+
     typeWriter();
 
-    // Update current index
     currentIndex = (currentIndex + 1) % texts.length;
   }
 
-  // Call changeText function initially
+
   changeText();
 
-  // Change text every 10 seconds
+
   setInterval(changeText, 15000);
-  // Automatic background change
+
   setInterval(nextBackground, 15000);
 });
 const lenis = new Lenis({
@@ -159,28 +158,28 @@ requestAnimationFrame(raf);
 const section_2 = document.getElementById("horizontal");
 let box_items = gsap.utils.toArray(".horizontal__item");
 
-// Animasi gambar di dalam setiap item horizontal
+
 box_items.forEach((item, index) => {
   gsap.fromTo(
-    item.querySelector(".tari-img"), // Pilih elemen gambar di dalam setiap item horizontal
+    item.querySelector(".tari-img"), 
     {
-      y: index % 2 === 0 ? 500 : -500, // Bergantian antara posisi y di atas dan di bawah
-      opacity: 0, // Mulai dengan opacity 0
+      y: index % 2 === 0 ? 500 : -500, 
+      opacity: 0, 
     },
     {
-      y: 0, // Akhir dengan posisi y normal
-      opacity: 1, // Akhir dengan opacity 1
+      y: 0, 
+      opacity: 1, 
       scrollTrigger: {
-        trigger: item, // Gunakan elemen item horizontal sebagai trigger
-        start: "top bottom", // Mulai animasi ketika bagian atas elemen trigger mencapai bagian bawah viewport
-        end: "bottom top", // Selesaikan animasi ketika bagian bawah elemen trigger mencapai bagian atas viewport
-        scrub: true, // Aktifkan efek pembersihan (smooth scrolling)
+        trigger: item,
+        start: "top bottom", 
+        end: "bottom top", 
+        scrub: true, 
       },
     }
   );
 });
 
-// Animasi horizontal pada semua item
+
 gsap.to(box_items, {
   xPercent: -100 * (box_items.length - 1),
   ease: "sine.out",
@@ -190,7 +189,7 @@ gsap.to(box_items, {
     scrub: 3,
     snap: 1 / (box_items.length - 1),
     end: "+=" + section_2.offsetWidth,
-    start: "top center-=930", // Menggeser trigger ke atas sebanyak 530 piksel
+    start: "top center-=930", 
   },
 });
 
@@ -210,8 +209,7 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  // Data untuk grafik
-  // Data untuk populasi
+
   const populasiData = {
     labels: ["Laki-laki", "Perempuan"],
     datasets: [
@@ -225,7 +223,7 @@ $(document).ready(function () {
     ],
   };
 
-  // Opsi untuk populasi
+
   const options = {
     scales: {
       yAxes: [
@@ -238,18 +236,18 @@ $(document).ready(function () {
     },
   };
 
-  // Inisialisasi grafik populasi
+
   const chartPopulasi = new Chart("chart-populasi", {
     type: "pie",
     data: populasiData,
     options: options,
   });
 
-  // Menghitung total populasi populasi
+
   const totalPopulationPopulasi = populasiData.datasets[0].data.reduce((a, b) => a + b, 0);
   $("#total-population-populasi").text("Total Populasi: " + totalPopulationPopulasi.toLocaleString());
 
-  // Data untuk suku
+
   const sukuData = {
     labels: ["Suku Bali", "Suku Bali Aga", "Suku Nyama Selam", "Suku Bali Majapahit", "Suku Sasak"],
     datasets: [
@@ -263,20 +261,20 @@ $(document).ready(function () {
     ],
   };
 
-  // Inisialisasi grafik suku
+
   const chartSuku = new Chart("chart-suku", {
     type: "pie",
     data: sukuData,
     options: options,
   });
 
-  // Menghitung total populasi suku
+
   const totalPopulationSuku = sukuData.datasets[0].data.reduce((a, b) => a + b, 0);
   $("#total-population-suku").text("Total Suku yang saya tahu: " + totalPopulationSuku.toLocaleString());
 
-  // Data untuk agama
+
   const agamaData = {
-    labels: ["Hindu", "Islam", "Kristen", "Buddha", "Konghucu"], // Menghapus koma yang berlebihan pada label Kristen
+    labels: ["Hindu", "Islam", "Kristen", "Buddha", "Konghucu"], 
     datasets: [
       {
         label: "# of Votes",
@@ -287,14 +285,14 @@ $(document).ready(function () {
       },
     ],
   };
-  // Inisialisasi grafik agama
+
   const chartAgama = new Chart("chart-agama", {
     type: "pie",
     data: agamaData,
     options: options,
   });
 
-  // Menghitung total populasi agama
+
   const totalPopulationAgama = agamaData.datasets[0].data.reduce((a, b) => a + b, 0);
   const totalPopulationPercent = totalPopulationAgama.toFixed(2) + "%";
   $("#total-population-agama").text("Total: " + totalPopulationPercent);
