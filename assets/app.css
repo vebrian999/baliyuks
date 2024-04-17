@@ -554,20 +554,17 @@ strong {
 
 .dast-dest {
   display: flex;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
-.destination,
-.destination1,
-.destination2,
-.destination3 {
-  display: inline-block;
-  vertical-align: top;
-}
 .destination h2 {
   color: white;
+}
+
+.seni-tari-mobile {
+  display: none;
 }
 
 /* end tari*/
@@ -1265,10 +1262,10 @@ footer {
   nav ul {
     top: 70px;
   }
-p {
-  font-family: "Poppins", sans-serif;
-  font-size: 14px;
-}
+  p {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+  }
   .mobile-menu-icon {
     display: none;
   }
@@ -1339,6 +1336,12 @@ p {
     text-align: center;
   }
 
+  #horizontal {
+    display: none;
+  }
+.seni-tari-mobile {
+  display: flex;
+}
   p {
     font-family: "Poppins", sans-serif;
     font-size: 12px;
@@ -1575,7 +1578,7 @@ p {
   }
 
   .dast-dest {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     overflow-y: auto;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
