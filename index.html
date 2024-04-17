@@ -15,6 +15,10 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
     <!-- awal header -->
@@ -43,10 +47,11 @@
         </div>
         <ul>
           <li><a href="#">Beranda</a></li>
-          <li><a id="kategori-link" href="#">Budaya</a></li>
-          <li><a id="featured-link" href="#">Sejarah</a></li>
-          <li><a id="blog-link" href="# ">Wisata</a></li>
-          <li><a id="" href="#">Seni rupa</a></li>
+          <li><a id="featured-link" href="#sejarah">Sejarah</a></li>
+          <li><a id="" href="#senitari">Seni tari</a></li>
+          <li><a id="blog-link" href="#wisata ">Destinasi</a></li>
+          <li><a id="kategori-link" href="#budaya">Budaya</a></li>
+          <li><a id="" href="#geleri">Galeri</a></li>
         </ul>
       </nav>
     </header>
@@ -54,13 +59,13 @@
     <main>
       <div class="content" id="content">
         <div class="judul">
-          <h2 class="judul-slide">Seputar Provinsi bali</h2>
+          <h2 class="">Seputar Provinsi bali</h2>
         </div>
-        <article class="background-seputar-bali" id="tradisi">
+        <article class="background-seputar-bali" id="beranda">
           <div class="seputar-bali">
             <div class="seputar-bali-kiri">
               <section class="what-bali">
-                <h2 class="judul-bali-kiri">Apa itu Bali? HAH??</h2>
+                <h2 class="judul-bali-kiri">Ada Apa Bali?</h2>
                 <p class="">
                   Bali adalah sebuah pulau yang memukau di Indonesia, dikenal sebagai "Pulau Dewata" dan sering dijuluki "Pulau Seribu Pura". Kehidupan di Bali tercermin dalam harmoni antara kebudayaan, keagamaan, dan alam yang indah.
                   Mayoritas penduduknya menganut agama Hindu, yang tercermin dalam pura-pura indah yang tersebar di seluruh pulau. Falsafah hidup Tri Hita Karana menjadi landasan bagi kehidupan masyarakat Bali, menekankan keseimbangan
@@ -147,6 +152,7 @@
                     <td>0361</td>
                   </tr>
                 </table>
+                <!-- <img class="bali-kanan-barong" src="assets/img/bali+united.png" style="margin-top: 20px; width: 350px" alt="" /> -->
               </div>
             </div>
           </div>
@@ -228,20 +234,20 @@
         </article>
 
         <!-- tentang-sejarah -->
-        <div class="judul">
-          <h2 class="judul-slide">Sejarah bali dulu sampai sekarang</h2>
+        <div id="sejarah" class="judul">
+          <h2 class="">Sejarah bali dulu sampai sekarang</h2>
         </div>
-        <article class="sejarah" id="sejarah">
-          <p style="padding: 40px 30px">
+        <article class="sejarah">
+          <p class="intro-sejarah">
             <strong>M</strong>ari kita mulai perjalanan kita menyusuri sejarah Bali - sebuah perjalanan yang akan membawa kita ke masa lalu pulau yang kaya akan budaya ini. Dari jejak-jejak kerajaan Hindu-Buddha pada abad ke-14 M, hingga
             masa kolonial yang penuh gejolak, dan perjalanan Bali menuju kemerdekaan serta pesatnya perkembangan pasca-kemerdekaan. Yuk, kita telusuri bersama bagaimana Bali menjelma menjadi pulau yang kita kenal hari ini!
           </p>
           <div class="sjr">
             <div class="sjr-1">
               <div class="bg-sjr1-kiri">
-                <img class="image-kiri-sjr" src="assets/img/sejarah.png" alt="" />
+                <img class="image-kiri-sjr" src="assets/img/abad ke-18.png" alt="" />
               </div>
-              <div class="pocici-mobile">
+              <div class="pocici-mobile" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <h2>Abad Ke-14 M</h2>
                 <p class="text-sejarah">
                   <strong>P</strong>ada abad ke-14 Masehi, Bali jatuh di bawah kekuasaan Majapahit yang dipimpin oleh Mahapatih Gajah Mada. Ini adalah periode yang penting dalam sejarah Bali, di mana pulau ini menjadi bagian dari kerajaan
@@ -253,9 +259,9 @@
                 </p>
               </div>
               <div class="bg-sjr1-kiri">
-                <img class="image-kiri-sjr" src="assets/img/sejarah.png" alt="" />
+                <img class="image-kiri-sjr" src="assets/img/abad ke-16.png" alt="" />
               </div>
-              <div class="pocici-mobile">
+              <div class="pocici-mobile" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <h2>Masa Kolonial</h2>
                 <p>
                   <strong>P</strong>ada masa kolonial, Bali mengalami sentuhan pengaruh Barat yang datang melalui perdagangan dan eksplorasi. Interaksi ini, khususnya dengan bangsa Eropa, membawa perubahan signifikan dalam politik, ekonomi,
@@ -267,14 +273,12 @@
                 </p>
               </div>
               <div class="bg-sjr1-kiri">
-                <img class="image-kiri-sjr" src="assets/img/sejarah.png" alt="" />
+                <img class="image-kiri-sjr" src="assets/img/Setelah Kemerdekaan.png" alt="" />
               </div>
             </div>
-            <!-- <div class="sjr-2">
-              <img src="assets/img/line.png" alt="" />
-            </div> -->
+
             <div class="sjr-3">
-              <div class="pocici-mobile">
+              <div class="pocici-mobile" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-sine">
                 <h2>Abad ke-18 M</h2>
                 <p>
                   <strong>K</strong>etika abad ke-8 menjelang, Bali memasuki periode yang melihat perubahan besar dalam kebudayaannya. Di tengah aliran dagang yang semakin intensif dan pertukaran budaya yang berkembang pesat, Bali mulai
@@ -286,9 +290,9 @@
                 </p>
               </div>
               <div class="bg-sjr1-kiri">
-                <img class="image-kanan-sjr" src="assets/img/sejarah.png" alt="" />
+                <img class="image-kanan-sjr" src="assets/img/abad ke-14.png" alt="" />
               </div>
-              <div class="pocici-mobile">
+              <div class="pocici-mobile" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-sine">
                 <h2>Abad Ke-16 M</h2>
                 <p>
                   <strong>P</strong>ada abad ke-16 Masehi, Indonesia menyaksikan kedatangan Islam yang signifikan, yang membawa perubahan besar dalam lanskap agama dan politik di Nusantara. Di Jawa, agama Islam mulai menyebar dengan cepat
@@ -299,9 +303,9 @@
                 </p>
               </div>
               <div class="bg-sjr1-kiri">
-                <img class="image-kanan-sjr" src="assets/img/sejarah.png" alt="" />
+                <img class="image-kanan-sjr" src="assets/img/Masa Kolonial.png" alt="" />
               </div>
-              <div class="pocici-mobile">
+              <div class="pocici-mobile" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-sine">
                 <h2 class="merdeka-h2">Setelah Kemerdekaan</h2>
                 <p>
                   <strong>S</strong>etelah kemerdekaan Republik Indonesia pada tanggal 17 Agustus 1945, Bali mengalami perkembangan yang signifikan dalam berbagai aspek kehidupan. Pemerintah Indonesia mengalokasikan dana untuk membangun
@@ -317,11 +321,11 @@
 
         <!-- tarian bali -->
         <article id="horizontal" class="">
-          <div class="judul">
-            <h2 class="judul-slide">Mengenal seni tari khas bali</h2>
+          <div id="senitari" class="judul">
+            <h2 class="">Mengenal seni tari khas bali</h2>
           </div>
           <div class="dast-dest">
-            <!-- destinasi pertama -->
+            <!-- seni tari pertama -->
             <div class="horizontal__item destination">
               <div class="horizontal__num dest-kiri">
                 <div class="cont">
@@ -336,11 +340,11 @@
                     </p>
                   </div>
                 </div>
-                <img class="tari-img" style="" src="assets/img/tari-barong.png" alt="destination" />
+                <img class="tari-img" src="assets/img/tari-barong.png" alt="senitari" />
               </div>
             </div>
 
-            <!-- destinasi kedua -->
+            <!-- seni tari kedua -->
             <div class="horizontal__item destination">
               <div class="horizontal__num dest-kiri">
                 <div class="dest">
@@ -359,11 +363,11 @@
                     </p>
                   </div>
                 </div>
-                <img class="tari-img" style="" src="assets/img/tari-kecak.png" alt="destination" />
+                <img class="tari-img" src="assets/img/tari-kecak.png" alt="senitari" />
               </div>
             </div>
 
-            <!-- destinasi ketiga-->
+            <!-- seni tari ketiga-->
             <div class="horizontal__item destination">
               <div class="horizontal__num dest-kiri">
                 <div class="dest">
@@ -382,11 +386,11 @@
                     </p>
                   </div>
                 </div>
-                <img class="tari-img" style="" src="assets/img/tari-pendet.png" alt="destination" />
+                <img class="tari-img" src="assets/img/tari-pendet.png" alt="senitari" />
               </div>
             </div>
 
-            <!-- destinasi keempat -->
+            <!-- seni tari keempat -->
             <div class="horizontal__item destination">
               <div class="horizontal__num dest-kiri">
                 <div class="cont">
@@ -401,54 +405,16 @@
                     </p>
                   </div>
                 </div>
-                <img class="tari-img" style="" src="assets/img/tari-topeng2.png" alt="destination" />
+                <img class="tari-img" src="assets/img/tari-topeng2.png" alt="senitari" />
               </div>
             </div>
           </div>
         </article>
 
-        <!-- makanan -->
-
         <article>
-          <div class="judul"><h2 class="judul-slide">Beberapa Makanan khas bali</h2></div>
-          <div class="featured" id="featured">
-            <a href="#">
-              <div class="featured1">
-                <img src="assets/img/makanan.png" alt="featured1" />
-                <h3>Babi bakar</h3>
-                <p>Babi Bakar, hidangan khas Bali, adalah daging babi yang dipanggang dengan rempah-rempah tradisional Bali, menciptakan cita rasa unik.</p>
-                <a class="seeM" href=""> See more </a>
-              </div>
-            </a>
-            <a href="#">
-              <div class="featured1">
-                <img src="assets/img/makanan.png" alt="featured1" />
-                <h3>Rica babi</h3>
-                <p>Rica Babi, hidangan khas Bali, adalah potongan daging babi dimasak dengan bumbu pedas khas Bali yang menggugah selera.</p>
-                <a class="seeM" href=""> See more </a>
-              </div>
-            </a>
-            <a href="#">
-              <div class="featured1">
-                <img src="assets/img/makanan.png" alt="featured1" />
-                <h3>Babi guling</h3>
-                <p>Babi Guling, makanan khas Bali, adalah babi yang dipanggang secara utuh dengan bumbu rempah-rempah khas.</p>
-                <a class="seeM" href=""> See more </a>
-              </div>
-            </a>
-            <a href="#">
-              <div class="featured1">
-                <img src="assets/img/makanan.png" alt="featured1" />
-                <h3>Babi icha</h3>
-                <p>Di Bali Babi Icha kian terkenal, Dibakar dengan bumbu khas yang mantap, Rasanya lezat, lidahpun terpikat, Nikmati sajian ini dengan senyuman yang mantap.</p>
-                <a class="seeM" href=""> See more </a>
-              </div>
-            </a>
+          <div class="judul judul-corousel" id="wisata" style="margin-bottom: 6%">
+            <h2 class="corosel-all">Menjelajahi Destinasi Keindahan Bali</h2>
           </div>
-        </article>
-
-        <article>
-          <h2 class="corosel-all">Menjelajahi Destinasi Keindahan Bali</h2>
           <!-- carousel -->
           <div class="carousel">
             <!-- list item -->
@@ -466,7 +432,7 @@
                   </div>
                   <div class="buttons">
                     <a href="">LIHAT DETAIL</a>
-                    <a href="">LOCATION</a>
+                    <a href="https://maps.app.goo.gl/JePniGrq42p4tNzX9">LOCATION</a>
                   </div>
                 </div>
               </div>
@@ -500,7 +466,7 @@
                   </div>
                   <div class="buttons">
                     <a href="">LIHAT DETAIL</a>
-                    <a href="">LOCATION</a>
+                    <a href="https://maps.app.goo.gl/HAbD3nEDxmjQUB397">LOCATION</a>
                   </div>
                 </div>
               </div>
@@ -517,7 +483,7 @@
                   </div>
                   <div class="buttons">
                     <a href="">LIHAT DETAIL</a>
-                    <a href="">LOCATION</a>
+                    <a href="https://maps.app.goo.gl/kZXV8BsLQPsaJRMM8">LOCATION</a>
                   </div>
                 </div>
               </div>
@@ -564,8 +530,8 @@
           </div>
         </article>
 
-        <div class="judul">
-          <h2 class="judul-slide">beragam jenis budaya yang kaya dan bervariasi</h2>
+        <div class="judul" id="budaya">
+          <h2 class="">beragam jenis budaya yang kaya dan bervariasi</h2>
         </div>
         <article class="background-card-budaya">
           <div class="card-card-budaya">
@@ -587,7 +553,7 @@
                     <img class="inset" src="assets/img/agama+ritual.png" alt="" />Di Bali, ritual kea gamaan menyatu dengan kehidupan sehari-hari. Mulai dari upacara persembahan hingga festival agama, kepercayaan Hindu mewarnai setiap
                     aktivitas.
                   </p>
-                  <p>Upacara kelahiran, pernikahan, dan kematian, serta festival seperti Galungan dan Nyepi, memperkaya</p>
+                  <p>Upacara kelahiran, pernikahan, dan kematian, serta festival seperti Galungan dan Nyepi.</p>
                   <div class="button-budaya">
                     <a class="tombol-budaya" href="agama+ritual.html">See More</a>
                   </div>
@@ -611,9 +577,9 @@
                     <img class="inset" src="assets/img/adat+tradisi.png" alt="" />Adat dan tradisi Bali menggam barkan ke kayaan budaya yang mendalam. Sistem sosial yang terstruktur, tata cara pernikahan, dan adat istiadat sehari-hari
                     mencerminkan nilai-nilai yang diwarisi dari generasi ke generasi.
                   </p>
-                  <p>
+                  <!-- <p>
                     Upacara adat, seperti metatah (potong gigi) dan ngaben (pemakaman), juga menjadi bagian integral dari kehidupan masyarakat. Dengan menjaga warisan ini, Bali terus memperkaya dan mempertahankan identitasnya yang unik.
-                  </p>
+                  </p> -->
                   <div class="button-budaya">
                     <a class="tombol-budaya" href="adat+tradisi.html">See More</a>
                   </div>
@@ -637,9 +603,9 @@
                     <img class="inset" src="assets/img/lukisan+patung.png" alt="" />Seni Lukis dan Patun g di Bali mencermi nkan keindahan dan kedalaman budaya pulau ini. Lukisan Bali sering menggambarkan mitologi Hindu, pemandangan alam,
                     dan kehidupan sehari-hari dengan warna cerah dan detail yang rumit.
                   </p>
-                  <p>Tak ketinggalan, festival agama seperti Galungan dan Nyepi juga menjadi momen penting dalam tahun kalender Bali.</p>
+                  <!-- <p>Tak ketinggalan, festival agama seperti Galungan dan Nyepi juga menjadi momen penting dalam tahun kalender Bali.</p> -->
                   <div class="button-budaya">
-                    <a class="tombol-budaya" href="">See More</a>
+                    <a class="tombol-budaya" href="lukis+patung.html">See More</a>
                   </div>
                 </div>
               </div>
@@ -648,50 +614,175 @@
         </article>
 
         <article>
-          <h2 class="judul">Galeri</h2>
-          <div class="galer-container">
-            <div class="galer">
-              <div class="galer1">
-                <img class="galer2" src="assets/img/b1 (1).png" alt="" />
-                <img class="galer2" src="assets/img/b1 (2).png" alt="" />
-                <img class="galer2" src="assets/img/b1 (3).png" alt="" />
+          <h2 id="geleri" class="judul">Galeri</h2>
+          <div class="gallery-container">
+            <div class="gallery" id="gallery1">
+              <div class="slide-gallery blue" onclick="openLightbox('assets/img/abad ke-14.png')">
+                <img src="assets/img/abad ke-14.png" alt="Image 1" />
               </div>
-              <div class="galer1">
-                <img class="galer2" src="assets/img/b2 (1).png" alt="" />
-                <img class="galer2" src="assets/img/b2 (2).png" alt="" />
-                <img class="galer2" src="assets/img/b2 (3).png" alt="" />
+              <div class="slide-gallery" onclick="openLightbox('assets/img/abad ke-16.png')">
+                <img src="assets/img/abad ke-16.png" alt="Image 2" />
               </div>
-              <div class="galer1">
-                <img class="galer2" src="assets/img/b3 (1).png" alt="" />
-                <img class="galer2" src="assets/img/b3 (2).png" alt="" />
-                <img class="galer2" src="assets/img/b3 (3).png" alt="" />
+              <div class="slide-gallery" onclick="openLightbox('assets/img/abad ke-18.png')">
+                <img src="assets/img/abad ke-18.png" alt="Image 3" />
               </div>
-              <div class="galer1">
-                <img class="galer2" src="assets/img/b4 (1).png" alt="" />
-                <img class="galer2" src="assets/img/b4 (2).png" alt="" />
-                <img class="galer2" src="assets/img/b4 (3).png" alt="" />
+              <div class="slide-gallery" onclick="openLightbox('assets/img/adat+tradisi.png')">
+                <img src="assets/img/adat+tradisi.png" alt="Image 4" />
               </div>
-              <div class="galer1">
-                <img class="galer2" src="assets/img/b5 (1).png" alt="" />
-                <img class="galer2" src="assets/img/b5 (2).png" alt="" />
-                <img class="galer2" src="assets/img/b5 (3).png" alt="" />
-              </div>
-              <div class="galer1">
-                <img class="galer2" src="assets/img/b4 (1).png" alt="" />
-                <img class="galer2" src="assets/img/b4 (2).png" alt="" />
-                <img class="galer2" src="assets/img/b4 (3).png" alt="" />
-              </div>
-              <div class="galer1">
-                <img class="galer2" src="assets/img/b1 (1).png" alt="" />
-                <img class="galer2" src="assets/img/b1 (2).png" alt="" />
-                <img class="galer2" src="assets/img/b1 (3).png" alt="" />
+              <div class="slide-gallery" onclick="openLightbox('assets/img/agama+ritual.png')">
+                <img src="assets/img/agama+ritual.png" alt="Image 5" />
               </div>
             </div>
+          </div>
+
+          <div class="gallery-container">
+            <div class="gallery" id="gallery2">
+              <div class="slide-gallery blue" onclick="openLightbox('assets/img/lukisan+klasik.png')">
+                <img src="assets/img/lukisan+klasik.png" alt="Image 6" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/lukisan+kolonial.png')">
+                <img src="assets/img/lukisan+kolonial.png" alt="Image 7" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/Patung Catur Muka.png')">
+                <img src="assets/img/Patung Catur Muka.png" alt="Image 8" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/Patung Satria Gatot Kaca.png')">
+                <img src="assets/img/Patung Satria Gatot Kaca.png" alt="Image 9" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/omedomedan.jpg')">
+                <img src="assets/img/omedomedan.jpg" alt="Image 10" />
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-container">
+            <div class="gallery" id="gallery3">
+              <div class="slide-gallery blue" onclick="openLightbox('assets/img/lukisan+klasik.png')">
+                <img src="assets/img/lukisan+klasik.png" alt="Image 6" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/lukisan+kolonial.png')">
+                <img src="assets/img/lukisan+kolonial.png" alt="Image 7" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/Patung Catur Muka.png')">
+                <img src="assets/img/Patung Catur Muka.png" alt="Image 8" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/Patung Satria Gatot Kaca.png')">
+                <img src="assets/img/Patung Satria Gatot Kaca.png" alt="Image 9" />
+              </div>
+              <div class="slide-gallery" onclick="openLightbox('assets/img/omedomedan.jpg')">
+                <img src="assets/img/omedomedan.jpg" alt="Image 10" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Lightbox -->
+          <div class="lightbox" id="lightbox">
+            <button class="close-button" onclick="closeLightbox()">✕</button>
+            <img src="" alt="Large Image" id="lightbox-image" />
           </div>
         </article>
       </div>
     </main>
 
+    <footer>
+      <div class="footer_container">
+        <div class="logo-footer">
+          <a href="index.html">
+            <img src="assets/img/logo.png" alt="" style="height: 70px" />
+          </a>
+        </div>
+        <div class="social_media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p style="color: white">BaliYuks © 2024 All Rights Reserved.</p>
+      </div>
+    </footer>
+    <!-- script galery -->
+    <script>
+      const gallery1 = document.getElementById("gallery1");
+      const gallery2 = document.getElementById("gallery2");
+      const gallery3 = document.getElementById("gallery3");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightbox-image");
+
+      // Fungsi untuk membuka lightbox dengan gambar yang dipilih
+      function openLightbox(imageSrc) {
+        lightboxImage.src = imageSrc;
+        lightbox.style.display = "flex";
+      }
+
+      // Fungsi untuk menutup lightbox
+      function closeLightbox() {
+        lightbox.style.display = "none";
+      }
+
+      window.addEventListener("load", () => {
+        const cloneSlides1 = gallery1.innerHTML;
+        const cloneSlides2 = gallery2.innerHTML;
+        const cloneSlides3 = gallery3.innerHTML;
+
+        gallery1.innerHTML += cloneSlides1;
+        gallery2.innerHTML += cloneSlides2;
+        gallery3.innerHTML += cloneSlides3;
+
+        let animationId1, animationId2, animationId3;
+
+        function startAnimation1() {
+          animationId1 = requestAnimationFrame(animate1);
+        }
+
+        function animate1() {
+          gallery1.scrollLeft += 1;
+
+          if (gallery1.scrollLeft >= gallery1.scrollWidth / 2) {
+            gallery1.scrollLeft = 0;
+          }
+
+          animationId1 = requestAnimationFrame(animate1);
+        }
+
+        function startAnimation2() {
+          animationId2 = requestAnimationFrame(animate2);
+        }
+
+        function animate2() {
+          gallery2.scrollLeft -= 1;
+
+          if (gallery2.scrollLeft <= 0) {
+            gallery2.scrollLeft = gallery2.scrollWidth / 2;
+          }
+
+          animationId2 = requestAnimationFrame(animate2);
+        }
+
+        function startAnimation3() {
+          animationId3 = requestAnimationFrame(animate3);
+        }
+
+        function animate3() {
+          gallery3.scrollLeft += 1;
+
+          if (gallery3.scrollLeft >= gallery3.scrollWidth / 2) {
+            gallery3.scrollLeft = 0;
+          }
+
+          animationId3 = requestAnimationFrame(animate3);
+        }
+
+        startAnimation1();
+        startAnimation2();
+        startAnimation3();
+      });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <script src="assets/app.js"></script>
   </body>
 </html>

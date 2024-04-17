@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BaliYuks</title>
+    <!-- My Own Styles -->
+    <link rel="stylesheet" href="akui.css" type="text/css" />
+    <link rel="stylesheet" href="assets/app.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: "popins", sans-serif;
+
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    hr {
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      margin: 20px 0;
+      font-size: 20px;
+      line-height: 2;
+      font-weight: 400;
+    }
+
+    img {
+      display: block;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* CLASS STYLES */
+    .main-section {
+      padding: 70px 0;
+      width: 80%;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #fff;
+    }
+    .img_container {
+      width: 100%;
+      height: 80vh;
+    }
+
+    .img_container img,
+    .tWrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .anime_img {
+      object-fit: cover;
+      animation: img_key linear forwards;
+      animation-timeline: view(block);
+      animation-range: cover 0% cover 20%;
+    }
+
+    .top_img {
+      position: relative;
+    }
+
+    .top_img img {
+      position: absolute;
+      z-index: -1;
+      animation: fade-out linear forwards;
+      /* animation-timeline that connects animation to scroll */
+      animation-timeline: view();
+      animation-range: exit;
+      top: 0px;
+    }
+
+    .img_container.top_img {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    section .tWrap {
+      perspective: 1000px;
+    }
+
+    .box {
+      animation: noTransformAnim linear forwards normal;
+      animation-timeline: view();
+      transform: rotateX(40deg);
+      opacity: 0;
+    }
+
+    @keyframes noTransformAnim {
+      50% {
+        transform: none;
+        opacity: 1;
+      }
+      100% {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    @keyframes img_key {
+      0% {
+        clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+      }
+      100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    @keyframes fade-out {
+      100% {
+        opacity: 0;
+        scale: 1.5;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
+    @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
+
+    /* Override UGG site */
+    #main {
+      width: 100%;
+      padding: 0;
+    }
+    .content-asset p {
+      margin: 0 auto;
+    }
+    .breadcrumb {
+      display: none;
+    }
+
+    /* Helpers */
+    /**************************/
+    .margin-top-10 {
+      padding-top: 10px;
+    }
+    .margin-bot-10 {
+      padding-bottom: 10px;
+    }
+
+    /* Typography */
+    /**************************/
+    #parallax-world-of-ugg h1 {
+      font-family: "popins", sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: black;
+      padding: 0;
+      margin: 0;
+    }
+    #parallax-world-of-ugg h2 {
+      font-family: "popins", sans-serif;
+      font-size: 70px;
+      letter-spacing: 10px;
+      text-align: center;
+      font-weight: 400;
+      text-transform: uppercase;
+      z-index: 10;
+      opacity: 0.9;
+    }
+    #parallax-world-of-ugg h3 {
+      font-family: "Oswald", sans-serif;
+      font-size: 14px;
+      line-height: 0;
+      font-weight: 400;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: black;
+    }
+    #parallax-world-of-ugg p {
+      font-family: "popins", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .first-character {
+      font-weight: 400;
+      float: left;
+      font-size: 84px;
+      line-height: 64px;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
+      font-family: "popins", sans-serif;
+    }
+
+    .sc {
+      color: #89cff3;
+    }
+    .ny {
+      color: #a0e9ff;
+    }
+    .atw {
+      color: #00a9ff;
+    }
+
+    /* Section - Title */
+    /**************************/
+    #parallax-world-of-ugg .title {
+      background: white;
+      padding: 60px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    #parallax-world-of-ugg .title h1 {
+      font-size: 35px;
+      letter-spacing: 8px;
+    }
+
+    /* Section - Block */
+    /**************************/
+    #parallax-world-of-ugg .block {
+      background: white;
+      padding: 60px;
+      width: 820px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+    #parallax-world-of-ugg .block-gray {
+      background: #f2f2f2;
+      padding: 60px;
+    }
+    #parallax-world-of-ugg .section-overlay-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.7;
+    }
+
+    /* Section - Parallax */
+    /**************************/
+    #parallax-world-of-ugg .parallax-one {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/lukis+judul.png");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
+    #parallax-world-of-ugg .parallax-two {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/seni+patung.png");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    #parallax-world-of-ugg .parallax-three {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/wetangan+matah1.jpg");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    #parallax-world-of-ugg .parallax-four {
+      padding-top: 200px;
+      padding-bottom: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      background-image: url("assets/img/adat+tradisi.png");
+      background-attachment: fixed;
+      background-size: cover;
+      -moz-background-size: cover;
+      -webkit-background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    /* Extras */
+    /**************************/
+    #parallax-world-of-ugg .line-break {
+      border-bottom: 1px solid black;
+      width: 150px;
+      margin: 0 auto;
+    }
+
+    /* Media Queries */
+    /**************************/
+    @media screen and (max-width: 959px) and (min-width: 768px) {
+      #parallax-world-of-ugg .block {
+        padding: 40px;
+        width: 620px;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      .image-kiri-sjr {
+        left: -30%;
+        top: -18%;
+      }
+    }
+    @media screen and (max-width: 767px) {
+      #parallax-world-of-ugg .block {
+        padding: 30px;
+        width: 420px;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      #parallax-world-of-ugg h2 {
+        font-size: 30px;
+      }
+      #parallax-world-of-ugg .block {
+        padding: 30px;
+      }
+      #parallax-world-of-ugg .parallax-one,
+      #parallax-world-of-ugg .parallax-two,
+      #parallax-world-of-ugg .parallax-three,
+      #parallax-world-of-ugg .parallax-four {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    }
+    @media screen and (max-width: 479px) {
+      #parallax-world-of-ugg .block {
+        padding: 30px 15px;
+        width: 290px;
+      }
+      body {
+        overflow-x: hidden;
+      }
+    }
+
+    .bg-slp-kiri {
+      background-image: url("assets/img/lukisan+patung.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      height: auto;
+    }
+
+    /* coba Media Queries */
+
+    /* CSS untuk perangkat tablet */
+    @media (max-width: 991px) {
+      .judul {
+        padding-top: 200px;
+        padding-bottom: 200px;
+        font-size: 70px;
+      }
+      .zoom-fx {
+        display: none;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      a .img-img {
+        width: 500px;
+        height: 275px;
+      }
+
+      p {
+        color: #000;
+      }
+      .row:nth-child(2) .img {
+        left: 5%;
+      }
+
+      .row:nth-child(3) .img {
+        position: relative;
+        left: 40%;
+      }
+
+      .row:nth-child(4) .img {
+        position: relative;
+        left: 5%;
+      }
+
+      #parallax-world-of-ugg h3 {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 8px;
+        line-height: normal;
+      }
+
+      #parallax-world-of-ugg .title {
+        padding: 30px;
+      }
+
+      #parallax-world-of-ugg h1 {
+        word-spacing: normal;
+      }
+      .sejarah-agama {
+        display: none;
+      }
+      .hero-scroller {
+        display: none;
+      }
+      .header-mobile-atb img {
+        width: 100%;
+      }
+      .header-mobile-atb {
+        display: flex;
+        position: absolute;
+      }
+
+      .header-mobile-atb h1 {
+        position: absolute;
+        top: 20%;
+        left: 40%;
+        color: #fff;
+        font-size: 48px;
+        text-align: center;
+      }
+      #parallax-world-of-ugg .parallax-one {
+        margin-top: 50%;
+      }
+    }
+
+    /* CSS untuk perangkat mobile */
+    @media (max-width: 767px) {
+      .judul {
+        padding-top: 1%;
+        padding-bottom: 1%;
+      }
+      .zoom-fx {
+        display: none;
+      }
+      body {
+        overflow-x: hidden;
+      }
+
+      a .img-img {
+        width: 200px;
+        height: 275px;
+        display: none;
+      }
+
+      p {
+        color: #000;
+      }
+      .row:nth-child(2) .img {
+        left: 20%;
+      }
+
+      .row:nth-child(3) .img {
+        position: relative;
+        left: 20%;
+      }
+
+      .row:nth-child(4) .img {
+        position: relative;
+        left: 20%;
+      }
+
+      #parallax-world-of-ugg h3 {
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 8px;
+        line-height: normal;
+      }
+
+      #parallax-world-of-ugg .title {
+        padding: 30px;
+      }
+
+      #parallax-world-of-ugg h1 {
+        word-spacing: normal;
+      }
+
+      .sejarah-agama {
+        display: none;
+      }
+      .hero-scroller {
+        display: none;
+      }
+      .header-mobile-atb img {
+        width: 100%;
+      }
+      .header-mobile-atb {
+        display: flex;
+        position: absolute;
+      }
+
+      .header-mobile-atb h1 {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        color: #fff;
+        font-size: 32px;
+        text-align: center;
+      }
+      #parallax-world-of-ugg .parallax-one {
+        margin-top: 40%;
+      }
+    }
+  </style>
+  <body>
+    <header>
+      <nav>
+        <div class="mobile-menu-icon" id="mobile-menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div>
+          <img class="logo" src="assets/img/logo.png" alt="logo-img" />
+        </div>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a id="kategori-link" href="#">Budaya</a></li>
+          <li><a id="featured-link" href="#">Sejarah</a></li>
+          <li><a id="blog-link" href="# ">Wisata</a></li>
+          <li><a id="" href="#">Seni rupa</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="img_container top_img">
+      <img src="assets/img/lukisan+patung.png" alt="" />
+      <div class="main-section" style="padding: 0">
+        <h1 style="font-size: 65px">Seni Lukis dan Patung</h1>
+      </div>
+    </div>
+    <article>
+      <section class="main-section">
+        <div class="content_wrapper">
+          <p class="">
+            Seni lukis Bali bukan hanya sekadar warisan budaya, tetapi juga merupakan sebuah kekayaan tak ternilai yang mencerminkan keindahan dan kekhasan budaya pulau tersebut. Dengan akar yang dalam dalam sejarah panjangnya, seni lukis
+            Bali menjadi cerminan dari kehidupan, keyakinan, dan kearifan lokal yang menginspirasi para penikmat seni di seluruh dunia. Bali menawarkan ragam gaya lukis yang unik, mulai dari gaya tradisional hingga kontemporer, seperti Pita
+            Maha yang mempersembahkan keindahan alam dan kehidupan pedesaan hingga gaya Batuan yang menampilkan detail anatomi dan adegan mitologis dengan dramatis. Dengan segala kekayaan sejarah dan ragam gaya, seni lukis Bali terus
+            berkembang dan memukau dunia dengan keajaiban dan keunikan yang ditampilkan dalam setiap goresan kuasnya.
+          </p>
+
+          <div class="img_container anime_img" style="margin: 25px 0">
+            <img src="assets/img/lukis+judul.png" alt="" />
+          </div>
+          <p>
+            Bali, sebagai tempat wisata yang terkenal, tidak hanya menawarkan keindahan alamnya, tetapi juga kekayaan seni dan budayanya yang unik. Salah satu keunikan yang paling menonjol adalah seni patungnya yang megah dan sarat makna.
+            Mulai dari patung dewa-dewi Hindu yang mencerminkan kekuatan spiritual hingga patung yang menceritakan adegan- adegan epik Mahabarata dan Ramayana, setiap patung memiliki cerita dan filosofi mendalam.
+          </p>
+          <p>
+            Patung-patung tersebut bukan hanya sebagai karya seni semata, melainkan juga sebagai manifestasi dari keyakinan dan nilai-nilai yang dipegang teguh oleh masyarakat Bali. Mereka menjadi bagian tak terpisahkan dari kehidupan
+            sehari-hari dan ritual keagamaan, serta menjadi daya tarik yang memukau bagi para wisatawan. Dengan berbagai patungnya yang memukau, Bali terus mempesona pengunjung dari seluruh dunia, menyajikan keindahan visual yang memikat
+            dan menceritakan kisah-kisah yang mendalam dan inspiratif.
+          </p>
+          <div class="tWrap rotatexWrap">
+            <style contenteditable></style>
+            <div class="rotateX box img_container">
+              <img src="assets/img/seni+patung.png" alt="" />
+            </div>
+            <p>
+              Bali, pulau yang kaya akan seni dan budaya, menawarkan sejumlah seni patung dan seni lukis yang memikat hati para pengunjung. Dari patung-patung megah yang memancarkan makna filosofis hingga lukisan-lukisan indah yang
+              menggambarkan kehidupan sehari-hari dan mitologi Hindu, setiap karya seni di Bali memiliki daya tariknya sendiri. Dalam perjalanan melintasi pulau ini, pengunjung akan disuguhi dengan berbagai karya seni yang mencerminkan
+              kekayaan budaya dan kreativitas masyarakat Bali.
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <div id="parallax-world-of-ugg">
+        <section>
+          <div class="title">
+            <h3>Ayo, mari kita jelajahi beberapa sejarah pada seni lukis dan patung yang populer</h3>
+            <br />
+            <h1>Bali</h1>
+          </div>
+        </section>
+
+        <section id="ngaben">
+          <div class="parallax-one">
+            <h2 style="color: white">SENI LUKIS</h2>
+          </div>
+        </section>
+
+        <section>
+          <p style="margin: 30px; font-size: 20px">
+            Dalam perjalanan sejarahnya, lukisan telah menjadi salah satu bentuk seni yang paling berpengaruh dan paling meresap dalam kebudayaan manusia, memperlihatkan keindahan, kebenaran, dan kompleksitas dunia di sekitar kita. Mari
+            kita telusuri perjalanan menarik seni lukis ini, dari zaman kuno hingga masa modern.
+          </p>
+          <div class="sjr" style="margin-bottom: 30%">
+            <div class="sjr-1">
+              <div class="bg-slp-kiri">
+                <img class="image-kiri-sjr" src="assets/img/lukisan+prasejarah.png" alt="" />
+              </div>
+              <div class="pocici-mobile" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                <h2>Masa Sebelum Penjajahan</h2>
+                <p class="text-sejarah">
+                  <strong>S</strong>ebelum kedatangan kerajaan-kerajaan Jawa yang menguasai Bali, seni lukis telah menjadi bagian integral dari kehidupan keagamaan masyarakat. Lukisan digunakan untuk menghiasi pura dan rumah-rumah kaum elit
+                  di Bali, dimana mereka menggambarkan tokoh-tokoh dewa, pahlawan, cerita epik, dan figur-figur legendaris. Penggunaan warna dalam seni lukis pada masa itu sangat simbolis, dengan warna merah melambangkan Dewa Brahma, putih
+                  untuk Dewa Wisnu, dan hitam untuk Dewa Siwa. Selain itu, motif poleng, yang terdiri dari kotak-kotak hitam dan putih, juga telah muncul pada masa ini. Motif ini melambangkan empat arah mata angin dan hubungan manusia
+                  dengan alam. Ini merupakan ciri khas yang masih kita lihat di Bali hingga saat ini.
+                </p>
+              </div>
+              <div class="bg-slp-kiri">
+                <img class="image-kiri-sjr" src="assets/img/lukisan+klasik.png" alt="" />
+              </div>
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2>Masa Kolonial</h2>
+                <p>
+                  <strong>P</strong>ada masa kolonial, Bali mengalami sentuhan pengaruh Barat yang datang melalui perdagangan dan eksplorasi. Interaksi ini, khususnya dengan bangsa Eropa, membawa perubahan signifikan dalam politik, ekonomi,
+                  dan budaya pulau ini. Belanda mulai menunjukkan minatnya untuk menguasai Bali sejak abad ke-17 Masehi. Namun, usaha mereka untuk mengambil alih penuh pulau ini baru berhasil pada abad ke-19 Masehi setelah serangkaian
+                  konflik dan perang dengan beberapa kerajaan di Bali yang berlangsung cukup lama. Selama periode ini, Belanda menetapkan kekuasaan kolonialnya di Bali dengan menerapkan sistem pemerintahan yang otoriter dan menggantikan
+                  struktur pemerintahan tradisional Bali dengan administrasi kolonial. Mereka juga mengontrol perdagangan dan sumber daya alam pulau untuk kepentingan ekonomi kolonial mereka sendiri. Selain itu, kehadiran Belanda juga
+                  membawa perubahan budaya yang signifikan. Pengaruh Barat, terutama dari Belanda, mulai memengaruhi aspek-aspek kehidupan sehari-hari di Bali, termasuk dalam bidang arsitektur, seni, dan bahasa. Namun, meskipun terjadi
+                  interaksi antara budaya Bali dan Barat, nilai-nilai dan tradisi budaya Bali tetap bertahan kuat di tengah tekanan kolonial.
+                </p>
+              </div>
+              <div class="bg-slp-kiri">
+                <img class="image-kiri-sjr" src="assets/img/lukisan+modern.png" alt="" />
+              </div>
+            </div>
+            <div class="sjr-3">
+              <div class="pocici-mobile" data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine" class="pocici-mobile">
+                <h2>Masa Prasejarah</h2>
+                <p class="text-sejarah">
+                  <strong>O</strong>rang Bali Aga dan Bali Mula, nenek moyang masyarakat Bali, telah tinggal di pulau tersebut sejak ribuan tahun sebelum Masehi. Pada masa itu, seni mereka terutama berkembang sebagai bagian dari ritual
+                  keagamaan. Mereka menciptakan berbagai karya seni seperti punden berundak, sarkofagus, dan dolmen, yang memiliki signifikansi penting dalam praktik kepercayaan mereka. Selain itu, periode ini juga ditandai dengan
+                  perkembangan seni lukis di kalangan mereka.
+                </p>
+              </div>
+              <div class="bg-slp-kiri" style="height: 40%">
+                <img class="image-kanan-sjr" src="assets/img/lukisan+sbm+penjajahan.png" alt="" />
+              </div>
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2>Masa Penjajahan-Masa Klasik</h2>
+                <p>
+                  <strong>B</strong>ali telah mengalami sejarah panjang sebagai bagian dari wilayah kekuasaan berbagai kerajaan Jawa, termasuk Kerajaan Mataram Hindu dan Kerajaan Majapahit. Meskipun terpengaruh oleh seni dan budaya Jawa,
+                  masyarakat Bali tetap berusaha mempertahankan ciri khas budaya mereka sendiri. Perkembangan seni lukis di Bali mencapai puncaknya pada masa keemasan Kerajaan Klungkung, dengan dukungan pemerintahannya terhadap pengembangan
+                  seni lukis dalam berbagai bentuk. Salah satu puncaknya adalah munculnya seniman terkemuka seperti I Gede Mersadi, yang dikenal dengan nama Sangging Modara, dalam gaya seni lukis wayang Kamasan.
+                </p>
+              </div>
+              <div class="bg-slp-kiri">
+                <img class="image-kanan-sjr" src="assets/img/lukisan+kolonial.png" alt="" />
+              </div>
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2 class="merdeka-h2">Masa Modern</h2>
+                <p>
+                  <strong>K</strong>esenian Bali mengalami transformasi menuju era modern seiring kedatangan Belanda di Indonesia. Pengaruh budaya Barat yang dibawa oleh bangsa Eropa diterima oleh masyarakat Bali, menghasilkan warna baru
+                  dalam kesenian mereka. Sejumlah seniman Belanda seperti Rudolf Bonnet, Walter Spies, Le Mayeur, W.G. Hofker, Romualdo Locatelli, dan lainnya datang ke Bali. Pada tahun 1932, terbentuklah kelompok seni Eropa-Bali bernama
+                  Pita Maha, didirikan oleh Rudolf Bonnet, Walter Spies, dan beberapa tokoh Bali terkemuka lainnya. Awalnya, anggota Pita Maha berjumlah sekitar 150 orang. Kelompok ini bertujuan untuk merangsang pertumbuhan seni dan
+                  memfasilitasi para seniman dalam mendapatkan bahan serta pemasaran karya mereka. Karya seni anggota Pita Maha dipilih oleh para ahli seni dan dijual, dengan sebagian keuntungannya digunakan untuk biaya operasional kelompok
+                  tersebut.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="melasti">
+          <div class="parallax-two">
+            <h2 style="color: white">SENI PATUNG</h2>
+          </div>
+        </section>
+
+        <section>
+          <p style="margin: 30px; font-size: 20px">
+            Bali merupakan tempat yang kaya akan seni dan budaya, menjadi destinasi utama bagi para wisatawan yang tertarik dengan keindahan dan kekayaan budayanya. Salah satu hal yang menarik perhatian banyak orang adalah patung-patung
+            terkenal yang ada di Bali. Berikut ini adalah daftar lengkap patung-patung paling terkenal di pulau tersebut!
+          </p>
+          <div class="sjr">
+            <div class="sjr-1">
+              <div class="bg-slp-kiri">
+                <img class="image-kiri-sjr" src="assets/img/garuda.png" alt="" />
+              </div>
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2>Patung Satria Gatot Kaca</h2>
+                <p class="text-sejarah">
+                  <strong>P</strong>atung Satria Gatot Kaca adalah salah satu ikonik yang berdiri di sekitar Bandara Ngurah Rai, Bali. Dibuat pada tahun 1993 oleh seniman I Wayan Winten, patung ini terinspirasi oleh kisah epik Mahabarata
+                  yang terkenal. Keberadaannya tidak hanya menambah kecantikan lingkungan sekitar bandara, tetapi juga dianggap sebagai penjaga dan sumber perlindungan bagi para pengunjung. Jika Anda keluar dari Bandara Ngurah Rai, Anda
+                  pasti akan langsung melihat megahnya patung ini.
+                </p>
+              </div>
+              <div class="bg-slp-kiri">
+                <img class="image-kiri-sjr" src="assets/img/nakula-sahadewa-statue.png" alt="" />
+              </div>
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2>Patung Catur Muka</h2>
+                <p>
+                  <strong>D</strong>i antara pemandangan yang menakjubkan di Bali, terdapat patung terkenal yang dikenal sebagai Catur Muka, atau lebih umum dikenal sebagai Kanda Pat Sari, yang telah menjadi salah satu landmark penting di
+                  Kota Denpasar. Diciptakan oleh seniman terkenal, I Gusti Nyoman Lempad, patung ini melambangkan Dewa Brahma yang berdiri kokoh di atas kelopak bunga Teratai. Dengan keempat wajahnya yang menghadap ke arah angin yang
+                  berbeda, patung ini mencerminkan sifat-sifat bijaksana, tenang, penuh kasih, dan kuat yang melekat pada sang dewa. Jika Anda ingin merasakan keindahan seni ini secara langsung, Patung Catur Muka dapat ditemukan di Dangin
+                  Puri Kauh, Kecamatan Denpasar Utara, Kota Denpasar, Bali.
+                </p>
+              </div>
+              <div class="bg-slp-kiri">
+                <img class="image-kiri-sjr" src="assets/img/Patung Dewa Ruci.png" alt="" />
+              </div>
+            </div>
+            <!-- <div class="sjr-2">
+              <img src="assets/img/line.png" alt="" />
+            </div> -->
+            <div class="sjr-3">
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2>Garuda Wisnu Kencana</h2>
+                <p>
+                  <strong>S</strong>alah satu patung paling terkenal di Bali adalah GWK, atau Garuda Wisnu Kencana, yang mencapai tinggi 121 meter dan lebar 60 meter. Patung megah ini merupakan karya dari seniman terkenal Bali, I Nyoman
+                  Nuarta. Dibangun dengan menggunakan campuran baja dan tembaga seberat 4000 ton, proses pembuatannya memakan waktu selama 28 tahun. Bagi yang ingin melihatnya secara langsung, patung Garuda Wisnu Kencana dapat ditemukan di
+                  Jalan Raya Uluwatu, Ungasan, Kecamatan Kuta Selatan, Kabupaten Badung, Bali.
+                </p>
+              </div>
+              <div class="bg-slp-kiri">
+                <img class="image-kanan-sjr" src="assets/img/Patung Satria Gatot Kaca.png" alt="" />
+              </div>
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2>Patung Nakula Sahadewa</h2>
+                <p>
+                  <strong>B</strong>erasal dari cerita Mahabarata, Nakula Sahadewa adalah salah satu patung terkenal karya seniman Bali, I Wayan Winten. Terletak di Jalan Uluwatu II, Badung, Jimbaran, patung ini menggambarkan dua tokoh
+                  ksatria kembar dari kerajaan Pandawa. Proses pembangunan patung ini dilakukan dalam dua tahap, yakni pada tahun 2017 dan 2018. Setelah selesai, patung Nakula Sahadewa menjadi simbol penting bagi kawasan Jimbaran, yang kini
+                  dikenal sebagai pusat kuliner internasional di Bali. Jika Anda ingin menyaksikan keindahan patung ini, Anda bisa menemukannya di Jalan Uluwatu II, Jimbaran, Kecamatan Kuta Selatan, Kabupaten Badung, Bali.
+                </p>
+              </div>
+              <div class="bg-slp-kiri">
+                <img class="image-kanan-sjr" src="assets/img/Patung Catur Muka.png" alt="" />
+              </div>
+              <div class="pocici-mobile" class="pocici-mobile" data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine">
+                <h2 class="merdeka-h2">Patung Dewa Ruci</h2>
+                <p>
+                  <strong>B</strong>erdiri kokoh di Simpang Siur, Kuta, Bali, patung Dewa Ruci karya seniman I Wayan Winten telah menjadi daya tarik utama bagi para pengunjung sejak tahun 1996. Meskipun sudah berlalu waktu sejak
+                  pembuatannya, pesona patung ini tetap tidak pudar dan terus menarik perhatian para wisatawan. Patung ini mengisahkan perjalanan Bima yang berlayar melintasi samudra untuk menemukan Tirta Amerta, sumber air keabadian. Dalam
+                  perjalanannya, Bima menghadapi berbagai rintangan, dan puncaknya adalah ketika ia berhasil mengalahkan naga Baruna, membuka jalan bagi pertemuannya dengan Dewa Ruci yang legendaris.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <footer style="margin-top: 40%">
+      <div class="footer_container">
+        <div class="logo-footer">
+          <a href="index.html">
+            <img src="assets/img/logo.png" alt="" style="height: 70px" />
+          </a>
+        </div>
+        <div class="social_media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p style="color: white">BaliYuks © 2024 All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const nav = document.querySelector("nav");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 400) {
+          nav.classList.add("scrolled");
+          nav.classList.add("show"); // Menunjukkan navbar saat digulir
+        } else {
+          nav.classList.remove("scrolled");
+          nav.classList.remove("show"); // Sembunyikan navbar saat digulir ke atas lagi
+        }
+      });
+
+      const mobileMenuButton = document.getElementById("mobile-menu");
+      const navList = document.querySelector("nav ul");
+      const navLinks = document.querySelectorAll("nav ul li");
+
+      mobileMenuButton.addEventListener("click", function () {
+        navList.classList.toggle("show");
+      });
+
+      navLinks.forEach(function (navLink) {
+        navLink.addEventListener("click", function () {
+          navList.classList.remove("show");
+        });
+      });
+    </script>
+  </body>
+</html>

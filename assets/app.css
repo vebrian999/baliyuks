@@ -17,10 +17,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* p {
-  font-size: 16px;
-  font-weight: 300;
-} */
+h2 {
+  font-size: 48px;
+  text-align: center;
+}
 
 .jumbotron {
   text-align: center;
@@ -76,7 +76,7 @@ nav a {
   font-size: 16px;
   text-decoration: none;
   color: #ffffff;
-  position: relative; /* Menjadikan posisi relatif untuk tautan */
+  position: relative;
 }
 
 nav a::before {
@@ -84,14 +84,14 @@ nav a::before {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0%; /* Mulai dari lebar 0 */
+  width: 0%;
   height: 2px;
   background-color: #ffffff;
-  transition: width 0.3s ease; /* Transisi untuk lebar */
+  transition: width 0.3s ease;
 }
 
 nav a:hover::before {
-  width: 100%; /* Mengubah lebar ke 100% saat dihover */
+  width: 100%;
 }
 
 nav ul {
@@ -117,8 +117,8 @@ nav {
   justify-content: center;
   align-items: center;
   width: 100%;
-  transition: transform 1s ease, background-color 1s ease; /* Mengubah durasi transisi menjadi 1 detik */
-  transform: translateY(-100%); /* Pindahkan navbar ke atas saat digulir */
+  transition: transform 1s ease, background-color 1s ease;
+  transform: translateY(-100%);
   z-index: 999999;
   background-color: #00a9ff;
 }
@@ -130,7 +130,7 @@ nav.scrolled {
 }
 
 nav.scrolled.show {
-  transform: translateY(0); /* Pindahkan navbar kembali ke posisi semula */
+  transform: translateY(0);
 }
 
 nav:hover {
@@ -150,7 +150,7 @@ nav .logo {
 .mobile-menu-icon .bar {
   width: 30px;
   height: 3px;
-  background-color: #9bb8cd;
+  background-color: #00a9ff;
   margin: 6px 0;
   transition: 0.4s;
   margin: 5px;
@@ -158,14 +158,256 @@ nav .logo {
 }
 /* bagian nav end */
 
-h2 {
-  font-size: 48px;
-  text-align: center;
+/*start tentang seputar bali */
+
+.background-seputar-bali {
+  background-image: url("../assets/img/bg-seputar-bali.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: auto;
 }
 
-/*start tentang-sejarah*/
+.seputar-bali {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+.seputar-bali-kiri {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  width: 70%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.seputar-bali-kanan {
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  align-items: center;
+  width: 30%;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.head-bali-kanan {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+table {
+  display: flex;
+  justify-content: center;
+}
+
+.judul-bali-kanan {
+  text-align: center;
+  font-size: 32px;
+}
+
+.judul-bali-kiri {
+  text-align: start;
+  font-size: 32px;
+}
+
+.what-bali {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.geografis-bali {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jumlah-ragam-bali {
+  background-color: rgba(255, 255, 255, 0.5);
+
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+}
+
+.jumlah-ragam-bali1 {
+  padding: 0px 20px;
+  padding-bottom: 20px;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: #00a9ff;
+  overflow: hidden;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  overflow: hidden;
+  animation: morph 3s linear infinite;
+  transition: transform 0.6s ease;
+}
+
+.circle:hover {
+  transform: scale(1.2);
+}
+.circle img {
+  width: 100%;
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+
+.button-jumlah-bali {
+  background-color: white;
+  width: 100px;
+  text-align: center;
+  border-radius: 8px;
+  display: flex;
+  margin-left: 20%;
+  transition: background-color 0.3s;
+}
+
+.button-jumlah-bali:hover {
+  background-color: #00a9ff;
+}
+.button-jumlah-bali a {
+  width: 100px;
+  padding: 10px;
+  text-decoration: none;
+  color: #00a9ff;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.button-jumlah-bali a:hover {
+  color: #fff;
+}
+.item-circle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* awal pop up */
+.judul-popup {
+  font-size: 20px;
+}
+.popup-wrap {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 999;
+}
+
+.popup-box {
+  width: 400px;
+  padding: 20px;
+  transform: translate(-50%, -50%) scale(0.5);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  background: #fff;
+  text-align: center;
+  border-radius: 20px;
+
+  .close-btn {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: all ease 0.5s;
+    border-radius: 1000px;
+    background: #ff0022;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+
+    &:hover {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.transform-in,
+.transform-out {
+  display: block;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+
+.transform-in {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.transform-out {
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.fa-female {
+  color: rgb(252, 114, 114);
+  width: 50px;
+  height: 50px;
+  font-size: 70px;
+}
+
+.fa-male {
+  color: rgb(43, 121, 255);
+  width: 50px;
+  height: 50px;
+  font-size: 70px;
+}
+
+a.fa {
+  width: 60px;
+  height: 50px;
+  font-size: 70px;
+  text-decoration: none;
+}
+
 .sejarah {
   margin-bottom: 25%;
+}
+.intro-sejarah {
+  padding: 40px 40px;
 }
 
 .sjr {
@@ -181,14 +423,6 @@ h2 {
   gap: 3%;
   padding: 30px;
 }
-
-/* .sjr-2 {
-  width: 10%;
-  height: 100%;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-} */
 
 .sjr-3 {
   width: 45%;
@@ -209,8 +443,6 @@ h2 {
 }
 
 .image-kiri-sjr {
-  /* margin-left: 25%;
-  margin-top: 10%; */
   position: relative;
   left: 45%;
   top: 7%;
@@ -232,14 +464,6 @@ strong {
   font-size: 48px;
   font-weight: 300;
 }
-
-/* end tentang-sejarah*/
-
-/* .dest h2 {
-  margin: 0px;
-} */
-
-/* start tari */
 
 .dest-kiri {
   display: flex;
@@ -271,36 +495,36 @@ strong {
 }
 
 .destination {
-  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
-  width: 100%; /* Lebar konten */
-  margin-right: -1px; /* Jarak antar artikel */
-  background-color: #00a9ff; /* Warna latar belakang */
-  color: white; /* Warna teks */
-  padding: 15px; /* Padding */
+  flex: 0 0 auto;
+  width: 100%;
+  margin-right: -1px;
+  background-color: #00a9ff;
+  color: white;
+  padding: 15px;
 }
 .destination1 {
-  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
-  width: 100%; /* Lebar konten */
-  margin-right: 10px; /* Jarak antar artikel */
-  background-color: #00a9ff; /* Warna latar belakang */
-  color: white; /* Warna teks */
-  padding: 15px; /* Padding */
+  flex: 0 0 auto;
+  width: 100%;
+  margin-right: 10px;
+  background-color: #00a9ff;
+  color: white;
+  padding: 15px;
 }
 .destination2 {
-  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
-  width: 100%; /* Lebar konten */
-  margin-right: 10px; /* Jarak antar artikel */
-  background-color: #00a9ff; /* Warna latar belakang */
-  color: white; /* Warna teks */
-  padding: 15px; /* Padding */
+  flex: 0 0 auto;
+  width: 100%;
+  margin-right: 10px;
+  background-color: #00a9ff;
+  color: white;
+  padding: 15px;
 }
 .destination3 {
-  flex: 0 0 auto; /* Konten tidak menyesuaikan lebar */
-  width: 100%; /* Lebar konten */
-  margin-right: 10px; /* Jarak antar artikel */
-  background-color: #00a9ff; /* Warna latar belakang */
-  color: white; /* Warna teks */
-  padding: 15px; /* Padding */
+  flex: 0 0 auto;
+  width: 100%;
+  margin-right: 10px;
+  background-color: #00a9ff;
+  color: white;
+  padding: 15px;
 }
 
 /* start text berjalan */
@@ -314,7 +538,7 @@ strong {
   padding-bottom: 200px;
   margin: 40px 0px;
   text-align: center;
-
+  color: white;
   background-image: url("../assets/img/bg-sejarah.jpg");
   background-size: cover;
   background-position: center;
@@ -323,51 +547,11 @@ strong {
   height: auto;
 }
 
-.judul:before,
-.judul:after {
-  position: absolute;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  content: "";
-  z-index: 2;
-}
-
-.judul:hover .judul-slide {
-  animation-play-state: paused;
-}
-
-.judul:before {
-  left: 0;
-}
-
-.judul:after {
-  right: 0;
-}
-
-.judul-slide {
-  display: inline-block;
-  font-size: 48px;
-  /* animation: slide 20s infinite linear; */
-  color: white;
-  font-weight: 600;
-}
-
-@keyframes slide {
-  from {
-    transform: translateX(135%);
-  }
-  to {
-    transform: translateX(-135%);
-  }
-}
-/* end text berjalan */
-
 .dast-dest {
   display: flex;
   overflow-x: hidden;
-  scroll-behavior: smooth; /* Animasi scrolling */
-  -webkit-overflow-scrolling: touch; /* Animasi scrolling pada perangkat mobile */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .destination,
@@ -383,102 +567,79 @@ strong {
 
 /* end tari*/
 
-/* start makanan */
+/* start galeri */
 
-.featured a {
-  text-decoration: none;
-  color: #00a9ff;
-}
-.featured {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px; /* Mengatur jarak antar item */
-}
-
-.featured1 {
-  flex-basis: calc(50% - 20px); /* Mengatur agar hanya ada 2 kolom */
-  background-color: #00a9ff;
-  border-radius: 10px;
-  padding: 25px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-  max-width: 500px;
+.gallery-container {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  overflow: hidden;
 }
 
-.featured1 h3 {
-  color: white;
-  font-size: 48px;
-}
-.featured1 p {
-  margin: 0px;
-  color: white;
-}
-
-.featured1:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
-  color: #00a9ff;
-}
-
-.featured1 img {
+.gallery {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.seeM {
-  background-color: white;
-  padding: 10px;
-  width: 25%;
-  text-align: center;
-  border-radius: 8px;
-}
-
-/* end makanan */
-
-/* start galer */
-
-@keyframes galeriAnimation {
-  from {
-    transform: translateX(650%);
-  }
-  to {
-    transform: translateX(-700%);
-  }
-}
-
-.galer2 {
-  background-color: #ffffff;
-  padding: 7px;
-  border-radius: 10px;
-}
-
-.galer {
-  display: flex;
-  overflow: hidden;
-  background-color: #00a9ff;
-  padding: 50px;
-}
-
-.galer1 {
-  animation: galeriAnimation 10s linear infinite;
+  overflow-x: scroll;
   white-space: nowrap;
-  display: flex;
-  flex-direction: column;
 }
 
-/* end galer */
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+.slide-gallery {
+  width: 256px;
+  height: 190px;
+  margin: 15px;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slide-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blue {
+  background: blue;
+}
+
+/* Lightbox styling */
+.lightbox {
+  position: fixed;
+  top: 5%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  margin-top: 3%;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+/* Tombol close untuk lightbox */
+.close-button {
+  position: absolute;
+  top: 14%;
+  right: 1%;
+  padding: 8px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* end galeri */
 
 /* start korosel */
 
-.corosel-all {
-  margin: 90px;
-}
 /* carousel */
 .carousel {
   height: 100vh;
@@ -771,256 +932,7 @@ strong {
   }
 }
 
-/*start tentang seputar bali */
-
-.background-seputar-bali {
-  background-image: url("../assets/img/bg-seputar-bali.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: auto;
-}
-
-.seputar-bali {
-  display: flex;
-  padding: 20px;
-  gap: 20px;
-}
-
-.seputar-bali-kiri {
-  background-color: rgba(255, 255, 255, 0.5); /* Ubah opasitas latar belakang putih */
-  /* backdrop-filter: blur(5px); */
-  border-radius: 20px; /* Sudut bulat pada semua sisi */
-  width: 70%;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.seputar-bali-kanan {
-  border-radius: 20px; /* Sudut bulat pada semua sisi */
-  background-color: rgba(255, 255, 255, 0.5);
-  align-items: center;
-  width: 30%;
-  padding: 40px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.head-bali-kanan {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-table {
-  display: flex;
-  justify-content: center;
-}
-
-.judul-bali-kanan {
-  text-align: center;
-  font-size: 32px;
-}
-
-.judul-bali-kiri {
-  text-align: start;
-  font-size: 32px;
-}
-
-.what-bali {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.geografis-bali {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.jumlah-ragam-bali {
-  background-color: rgba(255, 255, 255, 0.5); /* Ubah opasitas latar belakang putih */
-  /* backdrop-filter: blur(5px); */
-  border-radius: 20px; /* Sudut bulat pada semua sisi */
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 150px;
-  /* height: 100vh; */
-}
-
-.jumlah-ragam-bali1 {
-  padding: 0px 20px;
-  padding-bottom: 20px;
-}
-
-.circle {
-  width: 200px;
-  height: 200px;
-  background-color: #00a9ff;
-  overflow: hidden; /* Menghindari konten berlebih */
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  overflow: hidden;
-  animation: morph 3s linear infinite;
-  transition: transform 0.6s ease; /* Menambahkan transisi untuk perubahan ukuran */
-}
-
-.circle:hover {
-  transform: scale(1.2); /* Membesarkan gambar saat dihover */
-}
-.circle img {
-  width: 100%;
-}
-
-@keyframes morph {
-  0%,
-  100% {
-    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
-  }
-  34% {
-    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
-  }
-  67% {
-    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-  }
-}
-
-.button-jumlah-bali {
-  background-color: white;
-  width: 100px;
-  text-align: center;
-  border-radius: 8px;
-  display: flex;
-  margin-left: 20%;
-  transition: background-color 0.3s; /* Menambahkan transisi untuk perubahan warna latar belakang */
-}
-
-.button-jumlah-bali:hover {
-  background-color: #00a9ff; /* Ubah warna latar belakang saat dihover */
-}
-.button-jumlah-bali a {
-  width: 100px;
-  padding: 10px;
-  text-decoration: none;
-  color: #00a9ff;
-  text-align: center;
-  transition: color 0.3s; /* Menambahkan transisi untuk perubahan warna latar belakang */
-}
-
-.button-jumlah-bali a:hover {
-  color: #fff;
-}
-.item-circle {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* awal pop up */
-.judul-popup {
-  font-size: 20px;
-}
-.popup-wrap {
-  width: 100%;
-  height: 100%;
-  display: none;
-  position: fixed; /* Menggunakan posisi tetap agar popup terlihat di atas konten */
-  top: 50px;
-  left: 0;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 999; /* Menempatkan popup di atas konten lainnya */
-}
-
-.popup-box {
-  width: 400px;
-  padding: 20px;
-  transform: translate(-50%, -50%) scale(0.5);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
-  border-radius: 3px;
-  background: #fff;
-  text-align: center;
-  border-radius: 20px;
-
-  .close-btn {
-    width: 35px;
-    height: 35px;
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    transition: all ease 0.5s; /* Menghilangkan prefiks browser -webkit- */
-    border-radius: 1000px;
-    background: #ff0022;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    line-height: 35px; /* Menyesuaikan tinggi tombol dengan line-height */
-    text-align: center; /* Pusatkan teks */
-
-    &:hover {
-      -webkit-transform: rotate(180deg);
-      transform: rotate(180deg);
-    }
-  }
-}
-
-.transform-in,
-.transform-out {
-  display: block;
-  -webkit-transition: all ease 0.5s;
-  transition: all ease 0.5s;
-}
-
-.transform-in {
-  -webkit-transform: translate(-50%, -50%) scale(1);
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.transform-out {
-  -webkit-transform: translate(-50%, -50%) scale(0.5);
-  transform: translate(-50%, -50%) scale(0.5);
-}
-
-.fa-female {
-  color: rgb(252, 114, 114);
-  width: 50px;
-  height: 50px;
-  font-size: 70px; /* Menyesuaikan ukuran ikon */
-}
-
-.fa-male {
-  color: rgb(43, 121, 255);
-  width: 50px;
-  height: 50px;
-  font-size: 70px; /* Menyesuaikan ukuran ikon */
-}
-
-a.fa {
-  width: 60px;
-  height: 50px;
-  font-size: 70px;
-  text-decoration: none;
-}
-
-/* akhir pop up */
-
-/* end seputar bali */
+/* end corousel */
 
 /* start card-budaya */
 
@@ -1031,8 +943,8 @@ a.fa {
   place-items: center;
   margin: 20px;
   padding: 20px;
-  border-radius: 20px; /* Sudut bulat pada semua sisi */
-  background-color: rgba(255, 255, 255, 0.5); /* Warna putih dengan tingkat transparansi 50% */
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* .card-card-budaya {
@@ -1072,7 +984,7 @@ margin: 20px;
   transition: 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
-  border-radius: 20px; /* Sudut bulat pada semua sisi */
+  border-radius: 20px;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -1295,12 +1207,141 @@ margin: 20px;
   border-color: #0077cc;
 }
 
+/* start footer */
+.ground {
+  min-height: 100vh;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  background: #00a9ff;
+  padding: 20px 0;
+}
+
+.footer_container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+
+.logo-footer {
+  width: 180px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.social_media {
+  margin: 20px 150px;
+}
+
+.social_media a {
+  color: #ffffff;
+  font-size: 24px;
+  text-decoration: none;
+  transition: 0.6s;
+}
+
+.social_media a:hover {
+  color: #89cff3;
+}
+/* end footer */
+
 /* end card */
+
+/* CSS untuk perangkat tablet */
+@media (max-width: 991px) {
+  nav ul {
+    top: 70px;
+  }
+
+  .mobile-menu-icon {
+    display: none;
+  }
+
+  nav .logo {
+    display: block;
+  }
+
+  nav li {
+    padding: 15px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .video-bali iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .lokasi-bali iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-budaya {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wrap-budaya {
+    width: 100%;
+    margin: 0;
+  }
+
+  .sjr {
+    overflow-x: hidden; /* Menyembunyikan scroll horizontal */
+  }
+  .sjr-3 {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    gap: 1.5%;
+    padding: 30px;
+  }
+  .sjr-1 {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5%;
+    padding: 30px;
+  }
+  .footer_container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
 
 /* ini respomsif mobile yakk */
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {
+  .footer_container {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo-footer {
+    margin-bottom: 20px;
+  }
+
+  .social_media {
+    margin: 20px auto;
+  }
+
+  .social_media a {
+    margin: 0 10px; /* Ubah margin menjadi 10px */
+  }
   .text-jumbotron {
     margin-top: 150px;
     padding: 30px;
@@ -1316,11 +1357,14 @@ margin: 20px;
     width: 100%;
     background-color: #00a9ff;
     z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease, display 0s ease 0.3s;
   }
 
   nav ul.show {
     display: flex;
     justify-content: center;
+    opacity: 1;
   }
 
   .mobile-menu-icon {
@@ -1394,7 +1438,9 @@ margin: 20px;
   h1 {
     font-size: 16px;
   }
-
+.lukis-lukis {
+  color: red;
+}
   .popup-box {
     width: 329px;
 
@@ -1403,11 +1449,46 @@ margin: 20px;
   }
   /* start sejarah */
 
-  h2 {
-    font-size: 20px;
-    text-align: center;
+  .judul {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .judul h2 {
+    white-space: normal;
+    line-height: 1.2;
+    font-size: 32px;
+    color: white;
   }
 
+  .bali-kanan-barong {
+    display: none;
+  }
+
+  .carousel {
+    margin-top: 35px;
+  }
+
+  div .thumbnail {
+    display: none;
+  }
+  .arrows {
+    display: none;
+  }
+  .carousel .list .item .content {
+    position: absolute;
+    top: 20px;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .intro-sejarah {
+    padding: 0px 20px 20px 20px;
+  }
   .sjr {
     flex-direction: column;
     gap: 0px;
@@ -1416,36 +1497,36 @@ margin: 20px;
   .sjr-1,
   .sjr-3 {
     width: 100%;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     margin: 0%;
   }
 
   .bg-sjr1-kiri {
-    height: 200px; /* Sesuaikan ketinggian background */
+    height: 200px;
   }
 
   .image-kiri-sjr {
     width: 40%;
     height: auto;
-    margin: 10px auto; /* Menengahkan gambar */
+    margin: 10px auto;
     left: 30%;
     top: -1%;
   }
   .image-kanan-sjr {
     width: 40%;
     height: auto;
-    margin: 10px auto; /* Menengahkan gambar */
+    margin: 10px auto;
     right: -30%;
     top: -1%;
   }
 
   .merdeka-h2 {
     width: 100%;
-    text-align: center; /* Pusatkan teks */
+    text-align: center;
   }
 
   strong {
-    font-size: 24px; /* Kurangi ukuran font strong */
+    font-size: 24px;
   }
 
   .pocici-mobile {
@@ -1455,47 +1536,39 @@ margin: 20px;
 
   /* start jenis tarian */
   .horizontal__item {
-    flex-direction: column; /* Mengubah tata letak item menjadi tumpukan vertikal */
+    flex-direction: column;
   }
 
   .horizontal__num {
-    padding: 20px; /* Mengurangi padding */
+    padding: 20px;
   }
 
   .tari-img {
-    width: 100px; /* Lebar gambar mengisi lebar kontainer */
-    height: auto; /* Menjaga aspek rasio gambar */
+    width: 100px;
+    height: auto;
     height: 100px;
   }
 
   .cont {
-    text-align: center; /* Pusatkan teks */
+    text-align: center;
   }
 
   .dest {
-    display: none; /* Sembunyikan elemen yang tidak diperlukan */
+    display: none;
   }
 
   .destination {
-    padding: 20px; /* Ubah padding */
+    padding: 20px;
   }
 
   .dast-dest {
-    overflow-x: hidden; /* Matikan scroll horizontal */
-    overflow-y: auto; /* Aktifkan scroll vertikal jika konten melebihi area yang tersedia */
-    scroll-behavior: smooth; /* Animasi scrolling */
-    -webkit-overflow-scrolling: touch; /* Animasi scrolling pada perangkat mobile */
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 
   /* end jenis tarian */
-
-  /* makanan */
-  .featured {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-  }
 
   .seeM {
     width: 35%;

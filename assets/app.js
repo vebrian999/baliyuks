@@ -300,10 +300,16 @@ $(document).ready(function () {
   $("#total-population-agama").text("Total: " + totalPopulationPercent);
 });
 
-// Fungsionalitas menu mobile
 const mobileMenuButton = document.getElementById("mobile-menu");
 const navList = document.querySelector("nav ul");
+const navLinks = document.querySelectorAll("nav ul li");
 
 mobileMenuButton.addEventListener("click", function () {
   navList.classList.toggle("show");
+});
+
+navLinks.forEach(function (navLink) {
+  navLink.addEventListener("click", function () {
+    navList.classList.remove("show");
+  });
 });
